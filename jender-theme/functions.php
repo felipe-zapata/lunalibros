@@ -1,8 +1,15 @@
 <?php
 
 function add_css() {
-   wp_register_style('first', get_template_directory_uri() . '/assets/css/style-starter.css', false,'1.1','all');
+   wp_register_style('first', get_template_directory_uri() . '/assets/css/style.css', false,'1.1','all');
    wp_enqueue_style( 'first');
+
+   wp_register_style('noto',"https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap", false,'1.1','all');
+   wp_enqueue_style( 'noto');
+
+   wp_register_style('lato',"https://fonts.googleapis.com/css2?family=Lato&display=swap", false,'1.1','all');
+   wp_enqueue_style( 'lato');
+
 }
 
 add_action('wp_enqueue_scripts', 'add_css');
