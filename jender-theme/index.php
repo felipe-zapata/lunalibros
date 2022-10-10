@@ -1,152 +1,88 @@
-<body>
 <?php get_header(); ?>
-<section class="hero_libros">
-            <h3>LUNA LIBROS</h3>
-            <h1>Catálogo</h1>
-        </section>
-    
-
-    
-        <div class="nav_imagenes">
-            <article class="nav_icons">
-                <img src="<?php echo get_template_directory_uri().'/assets/imagenes/libro.png;' ?>" alt=" " class="img-fluid radius-image" />
-                <h3>Título del libro de máximo 2 líneas de largo</h3>
-                <p>Esta es una descripción del libro o del artículo de máx. 2 líneas.</p>
-            </article>
-
-            <article class="nav_icons">
-                <img src="<?php echo get_template_directory_uri().'/assets/imagenes/libro.png;' ?>" alt=" " class="img-fluid radius-image" />
-                <h3>Título del libro de máximo 2 líneas de largo</h3>
-                <p>Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
-            </article>    
-                    
-            <article class="nav_icons">
-                <img src="<?php echo get_template_directory_uri().'/assets/imagenes/libro.png;' ?>" alt=" " class="img-fluid radius-image" />
-                <h3>Título del libro de máximo 2 líneas de largo</h3>
-                <p>Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
-            </article>    
- 
-        </div>
-
-        <div>        
-            <section class="buton">
-                <a href="#" class="cta" style="color:#000">VER TODO</a>
-            </section>   
-        </div>    
-    
-        <div>
-        <section class="hero_luna">
-            <h3>LUNA LIBROS</h3>            
-        </section>
-
-        <section class="hero_boletin">
-            <h1>Nuestros boletines</h1>
-        </section>
-        </div>
-        
-    
-
-    
-        <div class="nav_boletines">
-            <article class="boletin">
-                <img src="<?php echo get_template_directory_uri().'/assets/imagenes/libro.png;' ?>" alt=" " class="img-fluid radius-image" />
-                <h3>Gozar Leyendo #150: Más joven cada día</h3>
-                <p>Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
-            </article>
-
-            <article class="boletin">
-                <img src="<?php echo get_template_directory_uri().'/assets/imagenes/libro.png;' ?>" alt=" " class="img-fluid radius-image" />
-                <h3>Gozar Leyendo #150: Más joven cada día</h3>
-                <p>Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
-            </article>
-        </div>
-
-        <div>
-        
-            <section class="buton">
-                <a href="#" class="cta" style="color:#000">VER TODO</a>
-            </section>   
-          
-            <section class="nav_fondo">
-
-            </section>
-        </div>
-         
-        
-    
-        <nav class="nav_eclipses">
-            <div class="eclipse">
-                <img src="<?php echo get_template_directory_uri().'/assets/imagenes/logo_luna.png;' ?>" alt=" " class="img-fluid radius-image" />
-                <h2>La música es </h2>
-                <h2>el tiempo presente </h2>
-                <h2>de los amores imposibles</h2>
-                <p>DARÍO JARAMILLO AGUDELO</p>
-                                
-            </div>
-        </nav>    
-
-        <nav class="luna">
-            <div class="logoluna">
-                <img src="<?php echo get_template_directory_uri().'/assets/imagenes/logo_luna.png;' ?>" alt=" " class="img-fluid radius-image" />
-            </div>
-        </nav>
-
-        <nav class="nav_btn">
-            <section class="nav_fondo2">
-                <h2>Si desea recibir Gozar Leyendo en su correo,</h2>
-                <h2>solicítelo acá</h2>
-                <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit sodales potenti nascetur volutpat tortor,</h3> 
-                    <h3> metus tempus molestie habitant nisi penatibus lacus ultrices non velit etiam lobortis parturient,</h3>
-                    <h3>aliquet rutrum</h3>  
-           
-
-                <div class="container-sub">
-                    <div class="conten-sub">            
-                        <form action="# ">
-                            <input type="emai " class="campo"
-                            placeholder="INGRESA TU CORREO ELECTRÓNICO">
-                            <input type="submit"
-                            value="SUSCRÍBETE" class="btn-sub">
-                        </form>
-                    </div>
-                </div>
-            </section>    
-        </nav>  
-        
-        <article class="seccion">
-            <h1>Al leer se sale del tiempo y se viaja</h1>
-            <h1>estando quieto</h1>
-        </article>
-
-        <section class="nav_redes">
-        
-            <nav class="red1">
-                <div class="face">                
-                    <p>Facebook</p></div>
-                <div class="twitter">    
-                    <p>Twitter</p></div>
-                <div class="insta">    
-                    <p>Instagram</p></div>
-                <div class="linke">    
-                    <p>LinkedIn</p></div>
-
-                    
-            </nav>
-
-            <div class="redes">
-            <img src="<?php echo get_template_directory_uri().'/assets/imagenes/logo_luna.png;' ?>" alt=" " class="img-fluid radius-image" />
-            </div>
-  
-        </section>
-
-
-        
-    </main>   
-    
-
-
-    <script src="./scripts.js"></script>
-
+<main>
+  <section class="presentacion">
+    <h1 class="presentacion-title">Somos una casa editorial independiente</h1>
+    <p class="presentacion-description">Publicamos poesía, ensayo y crónica</p>
+    <div class="presentacion-mas">
+      <a href="#" class="presentacion-button-mas">+</a>
+      <a href="#" class="presentacion-button-text">Conoce más</a>
+    </div>
+    <div class="presentacion-lateral">
+      <div>Un nuevo boletín todos los meses</div>
+      <div><span>------------------</span>Gozamos leyendo con lectores lunáticos</div>
+    </div>
+    <div class="presentacion-libros">
+      <div class="presentacion-libros-item first"></div>
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item second" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item third" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item first" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item second" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item third" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item first" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item second" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item third" />
+    </div>
+  </section>
+  <section class="boletines">
+    <div class="boletines-header">
+      <p class="boletines-luna">LUNA LIBROS</p>
+      <h3 class="boletines-title">Catálogo</h3>
+    </div>
+    <div class="boletines-articles">
+      <article class="boletines-item_catalogo">
+        <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
+        <h4 class="boletines-item-title">Gozar Leyendo #150: Más joven cada día</h4>
+        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
+      </article>
+      <article class="boletines-item_catalogo">
+        <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
+        <h4 class="boletines-item-title">Lecturas Lunáticas: Darío Jaramillo Agudelo</h4>
+        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
+      </article>
+      <article class="boletines-item_catalogo">
+        <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
+        <h4 class="boletines-item-title">Lecturas Lunáticas: Darío Jaramillo Agudelo</h4>
+        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
+      </article>
+    </div>
+    <a href="#" class="boletines-button">VER TODOS</a> 
+  </section>
+  <section class="boletines">
+    <div class="boletines-header">
+      <p class="boletines-luna">LUNA LIBROS</p>
+      <h3 class="boletines-title">Nuestros boletines</h3>
+    </div>
+    <div class="boletines-articles">
+      <article class="boletines-item">
+        <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
+        <h4 class="boletines-item-title">Gozar Leyendo #150: Más joven cada día</h4>
+        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
+      </article>
+      <article class="boletines-item">
+        <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
+        <h4 class="boletines-item-title">Lecturas Lunáticas: Darío Jaramillo Agudelo</h4>
+        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
+      </article>
+    </div>
+    <a href="#" class="boletines-button">VER TODOS</a> 
+  </section>
+  <section class="quote">
+    <svg height="100vw" width="100%" class="quote-eclipse">
+      <circle cx="50%" cy="100%" r="50%" stroke="white" stroke-width="2" fill="white" />
+    </svg>
+    <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/quote.png;"; ?>" alt=" " class="quote-img" />
+    <h6 class="quote-title">La música es el tiempo presente de los amores imposibles</h6>
+    <p class="quote-name">DARÍO JARAMILLO AGUDELO</p>
+  </section>    
+  <section class="newsletter">
+    <img src="<?php echo get_template_directory_uri()."/assets/imagenes/luna.png;"; ?>" alt=" " class="newsletter-logo" />
+    <h6 class="newsletter-title">Si desea recibir Gozar Leyendo en su correo, solicítelo acá</h6>
+    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sodales potenti nascetur volutpat tortor, metus tempus molestie habitant nisi penatibus lacus ultrices non velit etiam lobortis parturient, aliquet rutrum</p>  
+    <form action="#" class="newsletter-subscribe">
+      <input type="email" class="newsletter-input" placeholder="INGRESA TU CORREO ELECTRÓNICO">
+      <input type="submit" value="SUSCRÍBETE" class="newsletter-submit">
+    </form>
+  </section>   
+</main>
 
 <?php get_footer(); ?>
-</body>
