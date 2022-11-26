@@ -139,6 +139,7 @@
   font-size: 2rem;
   color: #434445;
   letter-spacing: -0.015em;
+  font-weight: 400;
 }
 
 .boletines-articles {
@@ -164,7 +165,7 @@
 .boletines-item-title {
   font-family: "Noto Serif", serif;
   color: #434445;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.5rem;
   line-height: 2.25rem;
   letter-spacing: -0.015em;
@@ -196,7 +197,7 @@
 
 .presentacion-title {
   font-family: "Noto Serif", serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 2.5rem;
   line-height: 140%;
   letter-spacing: -0.015em;
