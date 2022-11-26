@@ -270,6 +270,16 @@
   display: flex;
   flex-wrap: wrap;
   top: -450px;
+  max-width: 1000px;
+}
+
+@media screen and (max-width: 1200px) {
+  .presentacion-libros {
+    display: none;
+  }
+  .presentacion {
+    height: 674px;
+  }
 }
 
 .presentacion-libros-item {
