@@ -1,0 +1,40 @@
+.distribucion-subtitulos {
+  margin: 2rem auto;
+  width: 70%;
+}
+
+.distribucion-grid {
+  width: 90%;
+  margin: 60px auto 150px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  row-gap: 70px;
+}
+
+.distribucion-libreria {
+  text-align: center;
+}
+
+.distribucion-nombre {
+  font-family: "Noto Serif", serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #434445;
+}
+
+.distribucion-ciudad {
+  font-family: "Lato", sans-serif;
+  color: #434445;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.distribucion-link {
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  color: #6F7072;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
