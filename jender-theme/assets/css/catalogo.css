@@ -1,0 +1,46 @@
+.catalogo {
+  font-family: "Noto Serif", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.catalogo-description {
+  font-family: "Lato", sans-serif;
+  color: #9C9FA0;
+  font-size: 1.125rem;
+  width: 55%;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.catalogo-principal {
+  width: 90%;
+  justify-content: space-between;
+  display: none;
+}
+
+.catalogo-principal_activo {
+  display: flex;
+}
+
+.catalogo-subtitulos {
+  display: flex;
+  margin: 2rem;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.catalogo-subtitulos div {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #848687;
+  cursor: pointer;
+}
+
+.catalogo-subtitulos .catalogo-subtitulos_activo {
+  text-decoration: underline;
+  color: #434445;
+}
