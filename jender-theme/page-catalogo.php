@@ -8,6 +8,7 @@
       <div class="catalogo-subtitulos">
         <div class="catalogo-subtitulos_activo" id="titulos-btn">Títulos</div>
         <div id="autores-btn">Autores</div>
+      </div>
     </div>
     <div class="catalogo-principal catalogo-principal_activo" id="titulos-catalogo">
       <article class="boletines-item_catalogo">

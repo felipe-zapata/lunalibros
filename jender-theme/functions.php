@@ -16,6 +16,9 @@ function add_css() {
    wp_register_style('catalogo', get_template_directory_uri() . '/assets/css/catalogo.css', false,'1.1','all');
    wp_enqueue_style( 'catalogo');
 
+   wp_register_style('interna', get_template_directory_uri() . '/assets/css/interna.css', false,'1.1','all');
+   wp_enqueue_style( 'interna');
+
    wp_register_style('noto',"https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap", false,'1.1','all');
    wp_enqueue_style( 'noto');
 
@@ -32,6 +35,9 @@ function add_script() {
 
    wp_register_script('catalogo-script', get_template_directory_uri() . '/assets/js/catalogo.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'catalogo-script');
+
+   wp_register_script('interna-script', get_template_directory_uri() . '/assets/js/interna.js', array ( 'jquery' ), 1.1, true);
+   wp_enqueue_script( 'interna-script');
 }
 add_action('wp_enqueue_scripts', 'add_script');
 

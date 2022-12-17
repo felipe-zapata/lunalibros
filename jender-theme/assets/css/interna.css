@@ -1,0 +1,89 @@
+.interna {
+  margin: 60px 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.interna-image {
+  flex-basis: 49%;
+  flex-grow: 0;
+}
+
+.interna-text {
+  flex-basis: 49%;
+}
+
+.interna-author {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #5B5C5C;
+  margin-bottom: 40px;
+}
+
+.interna-subtitulos {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.interna-subtitulos div {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: #848687;
+  cursor: pointer;
+}
+
+.interna-subtitulos .interna-subtitulos_activo {
+  color: #434445;
+  text-decoration: underline;
+}
+
+.interna-description {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  color: #6F7072;
+  display: none;
+  margin-bottom: 48px;
+}
+
+.interna-description.interna-description_activo {
+  display: flex;
+}
+
+.interna-compraTitulo {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: #434445;
+  margin-bottom: 18px;
+}
+
+.interna-compra {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.interesar {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.interesar-principal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 170px;
+}
+
+.interesar-principal .boletines-item_catalogo {
+  text-align: justify;
+}
