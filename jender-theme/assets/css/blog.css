@@ -1,0 +1,35 @@
+.blog-subtitulos {
+  margin-top: 4rem;
+}
+
+.blog {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: start center;
+  margin-bottom: 100px;
+}
+
+.post-author {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #434445;
+  margin-top: 10px;
+}
+
+.post {
+  width: 90%;
+  margin: 0 auto 100px;
+  font-family: "Lato", sans-serif;
+  color: #6F7072;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-images {
+  margin: 100px;
+}

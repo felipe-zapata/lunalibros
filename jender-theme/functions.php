@@ -22,6 +22,9 @@ function add_css() {
    wp_register_style('distribucion', get_template_directory_uri() . '/assets/css/distribucion.css', false,'1.1','all');
    wp_enqueue_style( 'distribucion');
 
+   wp_register_style('blog', get_template_directory_uri() . '/assets/css/blog.css', false,'1.1','all');
+   wp_enqueue_style( 'blog');
+
    wp_register_style('noto',"https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap", false,'1.1','all');
    wp_enqueue_style( 'noto');
 

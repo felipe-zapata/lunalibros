@@ -7,11 +7,12 @@
       <div class="catalogo-description">Lorem ipsum dolor sit amet consectetur adipiscing elit sodales potenti nascetur volutpat tortor, metus tempus molestie habitant nisi penatibus lacus ultrices non velit etiam lobortis parturient, aliquet rutrum facilisis cubilia porta nec sagittis eget massa varius habitasse.</div>
     </div>
     <div class="catalogo-subtitulos distribucion-subtitulos">
-        <div class="catalogo-subtitulos_activo" id="">Todos</div>
-        <div id="">Argentina</div>
-        <div id="">Colombia</div>
-        <div id="">Chile</div>
-        <div id="">México</div>
+      <!-- TODO: Clicks -->
+      <div class="catalogo-subtitulos_activo" id="">Todos</div>
+      <div id="">Argentina</div>
+      <div id="">Colombia</div>
+      <div id="">Chile</div>
+      <div id="">México</div>
       </div>
     <div class="distribucion-grid">
       <!-- TODO: Links? -->
