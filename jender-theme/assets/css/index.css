@@ -256,6 +256,10 @@
   text-transform: uppercase;
 }
 
+.presentacion-lateral.hide {
+  z-index: -1;
+}
+
 .presentacion-lateral span {
   border-top: 1px solid #434445;
   color: #F8F4F1;

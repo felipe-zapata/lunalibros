@@ -7,14 +7,13 @@
   <title>luna libros</title>
   <?php wp_head(); ?>
 </head>
-
 <body>
   <header>
     <div class="topHeader">
       <div class="topHeader-anuncio">¡EGAN BERNAL Y LOS HIJOS DE LA CORDILLERA PRONTO EN LIBRERÍAS!</div>
       <div class="topHeader-hashtag">#LEOINDEPENDIENTE</div>
     </div>
-    <div class="header">
+    <div class="header" id="header">
       <img src="<?php echo get_template_directory_uri().'/assets/imagenes/logo_luna.png;' ?>" alt="" class="header-logo" />
       <div class="header-menuButtonContainer">
         <img src="<?php echo get_template_directory_uri().'/assets/imagenes/menu.svg;' ?>" alt="" id="navMenu-btn" class="header-menuButton show" />

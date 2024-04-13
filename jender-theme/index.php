@@ -7,7 +7,7 @@
       <a href="#" class="presentacion-button-mas">+</a>
       <a href="#" class="presentacion-button-text">Conoce más</a>
     </div>
-    <div class="presentacion-lateral">
+    <div class="presentacion-lateral" id="presentacion-lateral">
       <div>Un nuevo boletín todos los meses</div>
       <div><span>------------------</span>Gozamos leyendo con lectores lunáticos</div>
     </div>

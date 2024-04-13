@@ -21,8 +21,13 @@
   font-weight: 700;
 }
 
+.header.show {
+  background-color: #F8F4F1;
+  transition: background-color 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
 .navigation {
-  background-color: white;
+  background-color:#F8F4F1;
   width: 100%;
   height: 60%;
   opacity: 0;
@@ -36,6 +41,8 @@
   z-index: 1;
   top: auto;
   opacity: 1;
+  height: calc(100vh - 102px);
+  box-sizing: border-box;
 }
 
 .navigation ul {
@@ -45,7 +52,7 @@
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: #F8F4F1;
   height: 100%;
 }
 
@@ -73,4 +80,8 @@
 
 .header-menuButton.show, .header-menuClose.show {
   display: flex;
+}
+
+html.hide {
+  overflow: hidden;
 }
