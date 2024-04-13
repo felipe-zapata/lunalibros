@@ -274,7 +274,7 @@
   flex-wrap: wrap;
   max-width: 1000px;
   position: absolute;
-  top: -72px;
+  top: -10px;
   right: 20px;
   z-index: -1;
 }

@@ -3,6 +3,8 @@ const autoresBtn = document.querySelector("#autores-btn");
 const titulosCatalogo = document.querySelector("#titulos-catalogo");
 const autoresCatalogo = document.querySelector("#autores-catalogo");
 
+// TODO: Fix console errors
+
 titulosBtn.addEventListener('click', titulosBtnClick);
 autoresBtn.addEventListener('click', autoresBtnClick);
 

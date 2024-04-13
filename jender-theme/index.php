@@ -13,18 +13,19 @@
     </div>
     <div class="presentacion-libros">
       <div class="presentacion-libros-item first"></div>
-      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item second" />
-      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item third" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro3.png;"; ?>" alt=" " class="presentacion-libros-item second" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro6.png;"; ?>" alt=" " class="presentacion-libros-item third" />
       <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item first" />
-      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item second" />
-      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item third" />
-      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item first" />
-      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item second" />
-      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro1.png;"; ?>" alt=" " class="presentacion-libros-item third" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro4.png;"; ?>" alt=" " class="presentacion-libros-item second" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro7.png;"; ?>" alt=" " class="presentacion-libros-item third" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro2.png;"; ?>" alt=" " class="presentacion-libros-item first" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro5.png;"; ?>" alt=" " class="presentacion-libros-item second" />
+      <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro8.png;"; ?>" alt=" " class="presentacion-libros-item third" />
     </div>
   </section>
   <section class="boletines">
     <div class="boletines-header">
+      <!--TODO: Change titles-->
       <p class="boletines-luna">LUNA LIBROS</p>
       <h3 class="boletines-title">Catálogo</h3>
     </div>
@@ -68,7 +69,7 @@
   </section>
   <section class="quote">
     <svg height="100vw" width="100%" class="quote-eclipse">
-      <circle cx="50%" cy="100%" r="50%" stroke="white" stroke-width="2" fill="white" />
+      <circle cx="50%" cy="100%" r="50%" stroke="white" stroke-width="2" fill="#F8F4F1" />
     </svg>
     <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/quote.png;"; ?>" alt=" " class="quote-img" />
     <h6 class="quote-title">La música es el tiempo presente de los amores imposibles</h6>
