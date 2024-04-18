@@ -4,7 +4,7 @@
     <div class="boletines-header">
       <p class="boletines-luna">LUNA LIBROS</p>
       <h3 class="boletines-title">Blog</h3>
-      <div class="catalogo-description">Lorem ipsum dolor sit amet consectetur adipiscing elit sodales potenti nascetur volutpat tortor, metus tempus molestie habitant nisi penatibus lacus ultrices non velit etiam lobortis parturient, aliquet rutrum facilisis cubilia porta nec sagittis eget massa varius habitasse.</div>
+      <div class="catalogo-description">Gozar Leyendo es un boletín quincenal de recomendaciones de libros por parte de Darío Jaramillo Agudelo, recetas para gozar leyendo en comunidad. Lecturas Lunáticas es un boletín mensual de nuestro equipo editorial que recorre los libros de nuestro catálogo. </div>
       <div class="catalogo-subtitulos blog-subtitulos">
         <!-- TODO: Filter -->
         <div class="catalogo-subtitulos_activo" id="todos-btn">Todos</div>
