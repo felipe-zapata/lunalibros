@@ -85,7 +85,7 @@ Now that the **"Home Page"** exists, we're required to create the additional pag
 
 ### Post Types
 
-This is the most dynamic content on the site, so requires especial attention when adding a new entry. We'll use the plugin [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/) to create the different post types and later configure them.
+This is the most dynamic content on the site, so requires especial attention when adding a new entry. We'll use the plugin [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/) to create the different post types and [Advance Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) to configure their fields later.
 
 1. **Books**
 
@@ -104,6 +104,8 @@ This is the most dynamic content on the site, so requires especial attention whe
     - Field Name: autor
     - Default Value - Leave empty.
 - Repeat for all the fields required, please be aware that fields like "Portada" would require a *field type Image*, and  "Sinopsis" suits better with a *field type Text Area*.
+- On the *Settings* section change the ***Rules*** so these fields are available for the "Book" type.
+- Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=libro`.
 
 
 2. **Boletines**
@@ -115,6 +117,16 @@ This is the most dynamic content on the site, so requires especial attention whe
     - Singular Label: Boletin
 - Then click on *"Populate additional labels based on chosen labels"*
 - Add the post type.
+- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
+- Next to the *Field Groups* title, make click on " + Add New" 
+- For each field required for the **Bulletins post type** create as the following example (pay special attention to the letters case):
+    - Field Type: WYSIWYG Editor
+    - Field Label: Texto
+    - Field Name: texto
+    - Default Value - Leave empty.
+- Repeat for all the fields required, please be aware that fields like "Imagen" would require a *field type Image*.
+- On the *Settings* section change the ***Rules*** so these fields are available for the "Bulletin" type.
+- Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=boletin`.
 
 ---
 
@@ -122,7 +134,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ## Books
 
-To create a Books, we'll require to finish the [**"Post Types - Books"**](#post-types) steps first, please be sure these are complete before moving on: 
+To create a new Book, we'll require to finish the [**"Post Types - Books"**](#post-types) steps first, please be sure these are complete before moving on: 
 
 - Navigate to: `wp-admin/edit.php?post_type=libro`
 - Click on "Add new"
@@ -134,3 +146,18 @@ To create a Books, we'll require to finish the [**"Post Types - Books"**](#post-
 - Publish the book post.
 
 Be aware that the front page will include the latest three books created on the **"Catálogo"** section.
+
+
+## Bulletins
+
+To create a Books, we'll require to finish the [**"Post Types - Bulletins"**](#post-types) steps first, please be sure these are complete before moving on: 
+
+- Navigate to: `wp-admin/edit.php?post_type=boletin`
+- Click on "Add new"
+    - Add a Title for the bulletin. (Mandatory)
+    - Search for a 16:9 aspect-ratio image. (Mandatory)
+    - Include the Text, this will be a WYSIWYG field. (Optional)
+    - Add the remaining information for the fields created on [**"Post Types - Bulletins"**](#post-types)
+- Publish the bulletin post.
+
+Be aware that the front page will include the latest three bulletins created on the **"Nuestros Boletines"** section.
