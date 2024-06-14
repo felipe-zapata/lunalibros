@@ -45,3 +45,11 @@
   text-decoration: underline;
   color: #434445;
 }
+
+.catalogo-paginacion {
+  flex: 1 0 100%;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 1rem;
+}
