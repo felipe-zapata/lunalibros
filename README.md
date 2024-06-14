@@ -1,19 +1,27 @@
+<style>
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+</style>
+
 # Custom Template Setup (WIP)
+
+## TL;DR
+
+- Install the [Advance Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin and import the [AFC data JSON file](/jender-theme/assets/acf-export.json).
+- Follow the instructions for the [Home Page](#home-page) and [Content Administration](content-administration).
+- Pray for everything to work.
+
+---
 
 1. Requirements
     - [Plugins](#plugins)
     - [Content](#content)
-        - [Home Page](#home-page)
-        - [Basic Pages](#)
+        - [Home Page](#home-page)        
         - [Post Types](#post-types)
-2. Content Administration    
-    - [Books](#books)
-    - [Bulletins](#bulletins)
-    - [Catalog](#catalog)
-    - [Authors](#authors)
-    - [Distributors](#distributors)
-    - [Blog](#blog)
-    - [About Us](#about-us)
+2. Content Administration
+    - [Basic Pages](#basic-pages)
+    - [Collections](#collections)    
 
 ---
 
@@ -24,8 +32,6 @@
 Wordpress has a variety of plugins that helps to enhance the capabilities from the site, most of them are free, but some more specialized require payments or subscriptions.
 
 We have searched for plugins whose functionality interesect with the requirements of the site and also are simple enough to avoid overhead and future issues for the content administrators.
-
-- [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/): Custom Post Type UI provides an easy-to-use interface for registering and managing custom post types and taxonomies for your website. Custom Post Type UI development is managed on GitHub, with official releases published on WordPress.org.
 
 - [Advance Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/): Advanced Custom Fields (ACF) turns WordPress sites into a fully-fledged content management system by giving you all the tools to do more with your data. The ACF field builder allows you to quickly and easily add fields to WP edit screens with only the click of a few buttons! Whether it’s something simple like adding an “author” field to a book review post, or something more complex like the structured data needs of an ecommerce site or marketplace, ACF makes adding fields to your content model easy.
 
@@ -56,7 +62,106 @@ We'll require to create a static page as Front Page (Home), please follow as adv
 
 The subtitle field can be updated as often as required.
 
-### Basic Pages
+### Post Types
+
+This is the most dynamic content on the site, so requires especial attention when adding a new entry. We'll use the plugin [Advance Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) to create the post types and configure their fields later.
+
+1. **Collections**
+
+    - Navigate to: `/wp-admin/edit.php?post_type=acf-taxonomy`
+    - Click on the " + Add New" button.
+    - Fill the following fields (pay special attention to the letters case):
+        - Post Type Key: coleccion
+        - Plural Label: Colecciones
+        - Singular Label: Coleccion
+    - Save the changes.
+
+---
+
+2. **Books**
+
+- Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
+- Click on the " + Add New" button.
+- Fill the following fields (pay special attention to the letters case):
+    - Post Type Key: libro
+    - Plural Label: Libros
+    - Singular Label: Libro
+- Save the changes.
+- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
+- Next to the *Field Groups* title, make click on " + Add New" 
+    - Enter a title for the Field Group: **"Detalles de Libro"**
+    - For each field required for the **Libro post type** create as the following example (pay special attention to the letters case).
+
+| Field Label | Field Name | Field Type | Others Details |
+|---|---|---|---|
+| Colección | coleccion | Taxonomy | Select the **Taxonomy: Coleccion** && Toogle on the ***Create Terms, Save Terms and Load Terms*** options && Set the **Appearance** to **Checkbox**. |
+| Cover | cover | Image | Change the **"Return Format"** to **"Image URL"** |
+| Autor | autor | Text | Switch to the Validation tab and mark as *"Required"*. |
+| ISBN | isbn | Text | |
+| Descripción | descripcion | Text Area | |
+| Ficha Técnica | ficha_tecnica | Text Area | |
+| Ubicación | ubicacion | Text | Switch to the Validation tab and mark as *"Required"*. |
+| PVP | pvp | Number | |
+| Compra en Linea | compra_en_linea | Group | |
+| Logo | logo | Image | <r>**This is a "Compra en Linea" subfield** </r> && Change the **"Return Format"** to **"Image URL"** |
+| URL | url | Link | <r>**This is a "Compra en Linea" subfield** </r> |
+| Prensa | prensa | WYSIWYG Editor | |
+
+- Save the changes and verify when adding a new **Libro**: `/wp-admin/edit.php?post_type=libro`.
+
+---
+
+3. **Blogs**
+
+- Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
+- Click on the " + Add New" button.
+- Fill the following fields (pay special attention to the letters case):
+    - Post Type Key: blog
+    - Plural Label: Blogs
+    - Singular Label: Blog
+- Save the changes.
+- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
+- Next to the *Field Groups* title, make click on " + Add New" 
+    - Enter a title for the Field Group: **"Detalles de Blog"**
+    - For each field required for the **Blog post type** create as the following example (pay special attention to the letters case).
+
+| Field Label | Field Name | Field Type | Others Details |
+|---|---|---|---|
+| Imagen | imagen | Image | Change the **"Return Format"** to **"Image URL"** |
+| Text | Text | WYSIWYG Editor | |
+- Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=blog`.
+
+---
+
+4. **Distributors**
+
+- Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
+- Click on the " + Add New" button.
+- Fill the following fields (pay special attention to the letters case):
+    - Post Type Key: distribucion
+    - Plural Label: Distribuciones
+    - Singular Label: Distribución
+- Save the changes.
+- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
+- Next to the *Field Groups* title, make click on " + Add New" 
+    - Enter a title for the Field Group: **"Detalles de Distribución"**
+    - For each field required for the **Distribución post type** create as the following example (pay special attention to the letters case).
+
+| Field Label | Field Name | Field Type | Others Details |
+|---|---|---|---|
+| Ubicación | ubicacion | Text | Switch to the Validation tab and mark as *"Required"*. |
+| RRSS | rrss | Group | Change the **"Return Value"** to **"Link URL"** |
+| Logo | logo | Image | <r>**This is a "RRSS" subfield** </r> && Change the **"Return Format"** to **"Image URL"** |
+| Texto | texto | Text | <r>**This is a "RRSS" subfield** </r> |
+| URL | url | Link | <r>**This is a "RRSS" subfield** </r> |
+| Otro | otro | Text |  |
+- Save the changes and verify when adding a new *Distribución:* `/wp-admin/edit.php?post_type=distribucion`.
+
+---
+
+# Content Administration
+
+## Basic Pages
 
 Now that the **"Home Page"** exists, we're required to create the additional pages for the theme menu. 
 
@@ -70,7 +175,6 @@ Now that the **"Home Page"** exists, we're required to create the additional pag
     - Publish a page with the following: 
         - Title (*Mandatory, please don't change the title*): "Distribución"
     - Save changes.
-
 3. **Blog**
     - Navigate to Pages: `/wp-admin/edit.php?post_type=page`
     - Publish a page with the following: 
@@ -82,82 +186,13 @@ Now that the **"Home Page"** exists, we're required to create the additional pag
         - Title (*Mandatory, please don't change the title*): "Nosotros"
     - Save changes.
 
+## Collections
 
-### Post Types
+To create a new Book, we'll require to finish the [**"Post Types" steps for Collections and Books**](#post-types) first, when these are done, we'll require to add the collections available for the books: 
 
-This is the most dynamic content on the site, so requires especial attention when adding a new entry. We'll use the plugin [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/) to create the different post types and [Advance Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) to configure their fields later.
-
-1. **Books**
-
-- Navigate to: `/wp-admin/admin.php?page=cptui_manage_post_types`
-- On the "Basic Settings" section, fill the following fields (pay special attention to the letters case):
-    - Post Type Slug: libro
-    - Plural Label: Libros
-    - Singular Label: Libro
-- Then click on *"Populate additional labels based on chosen labels"*
-- Add the post type.
-- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
-- Next to the *Field Groups* title, make click on " + Add New" 
-- For each field required for the **Books post type** create as the following example (pay special attention to the letters case):
-    - Field Type: Text
-    - Field Label: Autor
-    - Field Name: autor
-    - Default Value - Leave empty.
-- Repeat for all the fields required, please be aware that fields like "Portada" would require a *field type Image*, and  "Sinopsis" suits better with a *field type Text Area*.
-- On the *Settings* section change the ***Rules*** so these fields are available for the "Book" type.
-- Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=libro`.
-
-
-2. **Boletines**
-
-- Navigate to: `/wp-admin/admin.php?page=cptui_manage_post_types`
-- On the "Basic Settings" section, fill the following fields (pay special attention to the letters case):
-    - Post Type Slug: boletin
-    - Plural Label: Boletines
-    - Singular Label: Boletin
-- Then click on *"Populate additional labels based on chosen labels"*
-- Add the post type.
-- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
-- Next to the *Field Groups* title, make click on " + Add New" 
-- For each field required for the **Bulletins post type** create as the following example (pay special attention to the letters case):
-    - Field Type: WYSIWYG Editor
-    - Field Label: Texto
-    - Field Name: texto
-    - Default Value - Leave empty.
-- Repeat for all the fields required, please be aware that fields like "Imagen" would require a *field type Image*.
-- On the *Settings* section change the ***Rules*** so these fields are available for the "Bulletin" type.
-- Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=boletin`.
-
----
-
-# Content Administration
-
-## Books
-
-To create a new Book, we'll require to finish the [**"Post Types - Books"**](#post-types) steps first, please be sure these are complete before moving on: 
-
-- Navigate to: `wp-admin/edit.php?post_type=libro`
-- Click on "Add new"
-    - Add a Title for the book. (Mandatory)
-    - Add the author. (Optional)
-    - Include the ISBN. (Optional)
-    - Search for a 16:9 aspect-ratio front cover image. (Mandatory)
-    - Add the remaining information for the fields created on [**"Post Types - Books"**](#post-types)
-- Publish the book post.
-
-Be aware that the front page will include the latest three books created on the **"Catálogo"** section.
-
-
-## Bulletins
-
-To create a Books, we'll require to finish the [**"Post Types - Bulletins"**](#post-types) steps first, please be sure these are complete before moving on: 
-
-- Navigate to: `wp-admin/edit.php?post_type=boletin`
-- Click on "Add new"
-    - Add a Title for the bulletin. (Mandatory)
-    - Search for a 16:9 aspect-ratio image. (Mandatory)
-    - Include the Text, this will be a WYSIWYG field. (Optional)
-    - Add the remaining information for the fields created on [**"Post Types - Bulletins"**](#post-types)
-- Publish the bulletin post.
-
-Be aware that the front page will include the latest three bulletins created on the **"Nuestros Boletines"** section.
+- Navigate to: `wp-admin/edit-tags.php?taxonomy=coleccion&post_type=libro`
+- Fill the "Add New Coleccion" form (pay special attention to the letters case):
+    - Name: Humanidades
+    - Slug; humanidades
+    - Click the **"Add New Coleccion"** button.
+- Add the remaining Collections (América, Creación, Pre-Textos América).

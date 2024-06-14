@@ -2,8 +2,12 @@
 get_header();
 
 // Catalogo de Libros
-$fields = array('autor', 'isbn', 'portada', 'sinopsis');
-$books = query_custom_post_types($fields, 'libro', 'publish', 3, 'DESC', 'post_date');
+$query_books = array('autor', 'cover', 'descripcion');
+$books = query_custom_post_types($query_books, null, 'libro', 'publish', 3, 'DESC', 'post_date');
+
+// Catalogo de Boletines
+$query_bulletins = array('imagen', 'texto');
+$bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish', 2, 'DESC', 'post_date');
 ?>
 
 <main>
@@ -40,34 +44,32 @@ $books = query_custom_post_types($fields, 'libro', 'publish', 3, 'DESC', 'post_d
     <div class="boletines-articles">
     <?php foreach ($books as $book) { ?>
         <article class="boletines-item_catalogo">
-          <img src="<?php echo $book['portada'] ?>" alt=" " class="img-fluid radius-image boletines-images" />
+          <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
           <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
-          <p class="boletines-item-description"><?php echo $book['sinopsis'] ?></p>
+          <p class="boletines-item-description"><?php echo $book['descripcion'] ?></p>
         </article>
     <?php } ?>
     </div>
-    <a href="#" class="boletines-button">VER TODOS</a> 
+    <a href="/catalogo" class="boletines-button">VER TODOS</a> 
   </section>
-  <!-- TODO: Show  -->
-  <!-- <section class="boletines">
+  <section class="boletines">
     <div class="boletines-header">
       <p class="boletines-luna">LUNA LIBROS</p>
-      <h3 class="boletines-title">Nuestros boletines</h3>
+      <h3 class="boletines-title">Nuestros Boletines</h3>
     </div>
     <div class="boletines-articles">
-      <article class="boletines-item">
-        <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
-        <h4 class="boletines-item-title">Gozar Leyendo #150: Más joven cada día</h4>
-        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
-      </article>
-      <article class="boletines-item">
-        <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
-        <h4 class="boletines-item-title">Lecturas Lunáticas: Darío Jaramillo Agudelo</h4>
-        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
-      </article>
+      <?php foreach ($bulletins as $bulletin) { ?>
+          <article class="boletines-item">
+            <img src="<?php echo load_default_image($bulletin['imagen']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+            <h4 class="boletines-item-title"><?php echo $bulletin['title'] ?></h4>
+            <div class="boletines-item-description">
+              <?php echo $bulletin['texto'] ?>
+            </div>            
+          </article>
+      <?php } ?>
     </div>
-    <a href="#" class="boletines-button">VER TODOS</a> 
-  </section> -->
+    <a href="/blog" class="boletines-button">VER TODOS</a> 
+  </section>
   <section class="quote">
     <svg height="100vw" width="100%" class="quote-eclipse">
       <circle cx="50%" cy="100%" r="50%" stroke="white" stroke-width="2" fill="#F8F4F1" />
