@@ -2,12 +2,12 @@
 get_header();
 
 // Catalogo de Libros
-$query_books = array('autor', 'isbn', 'portada', 'sinopsis');
-$books = query_custom_post_types($query_books, 'libro', 'publish', 3, 'DESC', 'post_date');
+$query_books = array('autor', 'cover', 'descripcion');
+$books = query_custom_post_types($query_books, null, 'libro', 'publish', 3, 'DESC', 'post_date');
 
 // Catalogo de Boletines
 $query_bulletins = array('imagen', 'texto');
-$bulletins = query_custom_post_types($query_bulletins, 'boletin', 'publish', 2, 'DESC', 'post_date');
+$bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish', 2, 'DESC', 'post_date');
 ?>
 
 <main>
@@ -44,13 +44,13 @@ $bulletins = query_custom_post_types($query_bulletins, 'boletin', 'publish', 2, 
     <div class="boletines-articles">
     <?php foreach ($books as $book) { ?>
         <article class="boletines-item_catalogo">
-          <img src="<?php echo $book['portada'] ?>" alt=" " class="img-fluid radius-image boletines-images" />
+          <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
           <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
-          <p class="boletines-item-description"><?php echo $book['sinopsis'] ?></p>
+          <p class="boletines-item-description"><?php echo $book['descripcion'] ?></p>
         </article>
     <?php } ?>
     </div>
-    <a href="#" class="boletines-button">VER TODOS</a> 
+    <a href="/catalogo" class="boletines-button">VER TODOS</a> 
   </section>
   <section class="boletines">
     <div class="boletines-header">
@@ -60,7 +60,7 @@ $bulletins = query_custom_post_types($query_bulletins, 'boletin', 'publish', 2, 
     <div class="boletines-articles">
       <?php foreach ($bulletins as $bulletin) { ?>
           <article class="boletines-item">
-            <img src="<?php echo $bulletin['imagen'] ?>" alt=" " class="img-fluid radius-image boletines-images" />
+            <img src="<?php echo load_default_image($bulletin['imagen']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
             <h4 class="boletines-item-title"><?php echo $bulletin['title'] ?></h4>
             <div class="boletines-item-description">
               <?php echo $bulletin['texto'] ?>
@@ -68,7 +68,7 @@ $bulletins = query_custom_post_types($query_bulletins, 'boletin', 'publish', 2, 
           </article>
       <?php } ?>
     </div>
-    <a href="#" class="boletines-button">VER TODOS</a> 
+    <a href="/blog" class="boletines-button">VER TODOS</a> 
   </section>
   <section class="quote">
     <svg height="100vw" width="100%" class="quote-eclipse">
