@@ -107,6 +107,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 | URL | url | Link | <r>**This is a "Compra en Linea" subfield** </r> |
 | Prensa | prensa | WYSIWYG Editor | |
 
+- Scroll to the settings section and change the Rules for this field group be shown just for ***"Libro"***.
 - Save the changes and verify when adding a new **Libro**: `/wp-admin/edit.php?post_type=libro`.
 
 ---
@@ -130,6 +131,8 @@ This is the most dynamic content on the site, so requires especial attention whe
 | Imagen | imagen | Image | Change the **"Return Format"** to **"Image URL"** |
 | Text | Text | WYSIWYG Editor | |
 - Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=blog`.
+
+- Scroll to the settings section and change the Rules for this field group be shown just for ***"Blogs"***.
 
 ---
 
@@ -156,6 +159,34 @@ This is the most dynamic content on the site, so requires especial attention whe
 | URL | url | Link | <r>**This is a "RRSS" subfield** </r> |
 | Otro | otro | Text |  |
 - Save the changes and verify when adding a new *Distribución:* `/wp-admin/edit.php?post_type=distribucion`.
+
+- Scroll to the settings section and change the Rules for this field group be shown just for ***"Distribución"***.
+
+---
+
+4. **Authors**
+
+- Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
+- Click on the " + Add New" button.
+- Fill the following fields (pay special attention to the letters case):
+    - Post Type Key: autor
+    - Plural Label: Autores
+    - Singular Label: Autor
+- Save the changes.
+- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
+- Next to the *Field Groups* title, make click on " + Add New" 
+    - Enter a title for the Field Group: **"Detalles de Autor"**
+    - For each field required for the **Autor post type** create as the following example (pay special attention to the letters case).
+
+| Field Label | Field Name | Field Type | Others Details |
+|---|---|---|---|
+| Descripción | descripcion | Text Area |  |
+| Libro | libro | Relationship | Add the **Post Type "Libro"** to the filter |
+| Foto | foto | Image | Change the **"Return Format"** to **"Image URL"** |
+
+- Scroll to the settings section and change the Rules for this field group be shown just for ***"Autor"***.
+- Save the changes and verify when adding a new *Distribución:* `/wp-admin/edit.php?post_type=distribucion`.
+
 
 ---
 

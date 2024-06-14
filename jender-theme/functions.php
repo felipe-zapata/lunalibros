@@ -127,8 +127,8 @@ function pagination_post_ids($post_type, $post_per_page = 10, $paged = 1) {
    $ids_list = array();
 
    $args = array(
-      'post_type' => $post_type, // your post type name
-      'posts_per_page' => $post_per_page, // post per page
+      'post_type' => $post_type,
+      'posts_per_page' => $post_per_page,
       'paged' => $paged,
       'fields' => 'ids',
    );
