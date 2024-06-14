@@ -1,20 +1,19 @@
 <?php
 get_header();
 
+// Paginacion
 $max_to_show = 3;
+$current_page = get_query_var('paged') ? get_query_var('paged') : 1;
 
 // Catalogo de Libros
 $query_books = array('autor', 'cover', 'descripcion');
-// Catalogo de Libros - Paginacion
-$current_page = get_query_var('paged') ? get_query_var('paged') : 1;
 $books = pagination_post_ids('libro', $max_to_show , $current_page);
 $total_books_pages = $books['total_pages'];
 
 // Catalogo de Autores
-$query_authors = array('nombre', 'foto', 'descripcion');
-$authors = query_custom_post_types($query_authors, null, 'autor', 'publish', $max_to_show, 'DESC', 'post_date');
-$total_authors = wp_count_posts('autor');
-
+$query_authors = array('foto', 'descripcion', 'libro');
+$authors = pagination_post_ids('autor', $max_to_show , $current_page);
+$total_authors_pages = $authors['total_pages'];
 ?>
 <main>
   <section class="catalogo">
@@ -58,28 +57,40 @@ $total_authors = wp_count_posts('autor');
         }
         ?>
       </div>      
-      <!-- TODO: Fix styles and missing pagination -->
+      <!-- TODO: Fix pagination between authors and books -->
     </div>
     <div class="catalogo-principal" id="autores-catalogo">
+      <?php if ($total_authors_pages !== null ) {         
+        foreach ($authors['ids_list'] as $author_id) {           
+          $author = query_custom_post_types($query_authors, $author_id, 'autor', 'publish', 1, 'DESC', 'post_date')[0];
+      ?>
       <article class="boletines-item_catalogo">
-        <img src="<?php echo get_template_directory_uri() .
-          "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
-        <h4 class="boletines-item-title">Autores</h4>
-        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
+        <img src="<?php echo load_default_image($author['foto']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+        <h4 class="boletines-item-title"><?php echo $author['title'] ?></h4>
+        <p class="boletines-item-description"><?php echo $author['descripcion'] ?></p>
       </article>
-      <article class="boletines-item_catalogo">
-        <img src="<?php echo get_template_directory_uri() .
-          "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
-        <h4 class="boletines-item-title">Lecturas Lunáticas: Darío Jaramillo Agudelo</h4>
-        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
-      </article>
-      <article class="boletines-item_catalogo">
-        <img src="<?php echo get_template_directory_uri() .
-          "/assets/imagenes/libro.png;"; ?>" alt=" " class="img-fluid radius-image boletines-images" />
-        <h4 class="boletines-item-title">Lecturas Lunáticas: Darío Jaramillo Agudelo</h4>
-        <p class="boletines-item-description">Esta es una descripción del libro o del artículo de máx.<br>  2 líneas.</p>
-      </article>
-      <!-- TODO: Pagination -->
+      <?php 
+        } 
+      }
+      ?>
+      <div class="catalogo catalogo-paginacion">
+        <?php if ($total_authors_pages > 1) {
+          $current_page = max(1, get_query_var('paged'));
+
+          echo paginate_links(
+            array(
+              'base' => get_pagenum_link(1) . '%_%',
+              'format' => '/page/%#%',
+              'current' => $current_page,
+              'total' => $total_authors_pages,
+              'prev_text' => __('« previo'),
+              'next_text' => __('siguiente »'),
+            )
+          );
+        }
+        ?>
+      </div>      
+      <!-- TODO: Fix pagination between authors and books -->
     </div>
   </section>
   <section class="newsletter">
