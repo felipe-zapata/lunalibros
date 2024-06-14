@@ -34,10 +34,10 @@ $header_anuncio = empty($header_anuncio) ? '¡EGAN BERNAL Y LOS HIJOS DE LA CORD
     </div>
     <div id="navigation" class="navigation">
       <ul>
-          <li><a class="navigation-link" href="#0">Catálogo</a></li>
-          <li><a class="navigation-link" href="#0">Distribución</a></li>
-          <li><a class="navigation-link" href="#0">Blog</a></li>
-          <li><a class="navigation-link" href="#0">Nosotros</a></li>
+          <li><a class="navigation-link" href="/catalogo">Catálogo</a></li>
+          <li><a class="navigation-link" href="/distribucion">Distribución</a></li>
+          <li><a class="navigation-link" href="/blog">Blog</a></li>
+          <li><a class="navigation-link" href="/nosotros">Nosotros</a></li>
       </ul>
     </div>
   </header>
