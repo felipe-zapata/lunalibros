@@ -1,4 +1,13 @@
-<?php get_header(); ?>
+<?php
+get_header();
+
+// Pestañas
+$distributors_structure = query_posts_ids_by_taxonomy('pais');
+
+// Lista de Distribuidores
+$query_distributors = array('ubicacion', 'rrss', 'otro');
+$distributors = query_custom_post_types($query_distributors, null, 'distribucion', 'publish', 10, 'DESC', 'post_date');
+?>
 <main>
   <section class="distribucion">
     <div class="boletines-header">
@@ -8,63 +17,44 @@
     </div>
     <div class="catalogo-subtitulos distribucion-subtitulos">
       <!-- TODO: Clicks -->
-      <div class="catalogo-subtitulos_activo" id="">Todos</div>
-      <div id="">Argentina</div>
-      <div id="">Colombia</div>
-      <div id="">Chile</div>
-      <div id="">México</div>
+      <div class="catalogo-subtitulos_activo" id="distribucion-todos">Todos</div>
+      <?php foreach ($distributors_structure as $country => $id) { ?>
+      <div id="distribucion-<?php echo strtolower($country) ?>"><?php echo $country ?></div>
+      <?php } ?>
       </div>
-    <div class="distribucion-grid">
+    <div class="distribucion-grid distribucion-grid_activo" id="distribucion-grid-todos">
       <!-- TODO: Links? -->
-      <article class="distribucion-libreria">
-        <div class="distribucion-nombre">Librería 9 3/4</div>
-        <div class="distribucion-ciudad">ENVIGADO</div>
-        <div class="distribucion-link">
-          <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
-          <div>@9trescuartos</div>
-        </div>
-      </article>
-      <article class="distribucion-libreria">
-        <div class="distribucion-nombre">Librería 9 3/4</div>
-        <div class="distribucion-ciudad">ENVIGADO</div>
-        <div class="distribucion-link">
-          <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
-          <div>@9trescuartos</div>
-        </div>
-      </article>
-      <article class="distribucion-libreria">
-        <div class="distribucion-nombre">Librería 9 3/4</div>
-        <div class="distribucion-ciudad">ENVIGADO</div>
-        <div class="distribucion-link">
-          <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
-          <div>@9trescuartos</div>
-        </div>
-      </article>
-      <article class="distribucion-libreria">
-        <div class="distribucion-nombre">Librería 9 3/4</div>
-        <div class="distribucion-ciudad">ENVIGADO</div>
-        <div class="distribucion-link">
-          <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
-          <div>@9trescuartos</div>
-        </div>
-      </article>
-      <article class="distribucion-libreria">
-        <div class="distribucion-nombre">Librería 9 3/4</div>
-        <div class="distribucion-ciudad">ENVIGADO</div>
-        <div class="distribucion-link">
-          <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
-          <div>@9trescuartos</div>
-        </div>
-      </article>
-      <article class="distribucion-libreria">
-        <div class="distribucion-nombre">Librería 9 3/4</div>
-        <div class="distribucion-ciudad">ENVIGADO</div>
-        <div class="distribucion-link">
-          <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
-          <div>@9trescuartos</div>
-        </div>
-      </article>
+      <?php foreach ($distributors as $distributor) { ?>
+        <article class="distribucion-libreria">
+          <div class="distribucion-nombre"><?php echo $distributor['title'] ?></div>
+          <div class="distribucion-ciudad"><?php echo $distributor['ubicacion'] ?></div>
+          <a href="<?php echo $distributor['rrss']['url'] ?>" target="_blank" >
+            <div class="distribucion-link">
+              <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
+              <div><?php echo $distributor['rrss']['texto'] ?></div>
+            </div>
+          </a>
+        </article>
+      <?php } ?>
     </div>
+    <?php foreach ($distributors_structure as $country => $ids) { ?>
+    <div class="distribucion-grid" id="distribucion-grid-<?php echo strtolower($country) ?>">
+    <!-- TODO: Links? -->
+    <?php foreach ($ids as $id) { ?>
+      <?php $distributor = query_custom_post_types($query_distributors, $id, 'distribucion', 'publish', 1, 'DESC', 'post_date')[0]; ?>
+      <article class="distribucion-libreria">
+        <div class="distribucion-nombre"><?php echo $distributor['title'] ?></div>
+        <div class="distribucion-ciudad"><?php echo $distributor['ubicacion'] ?></div>
+        <a href="<?php echo $distributor['rrss']['url'] ?>" target="_blank" >
+          <div class="distribucion-link">
+            <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
+            <div><?php echo $distributor['rrss']['texto'] ?></div>
+          </div>
+        </a>
+      </article>
+    <?php } ?>          
+    </div>
+    <?php } ?>    
   </section>
   <section class="newsletter">
     <img src="<?php echo get_template_directory_uri()."/assets/imagenes/luna.png;"; ?>" alt=" " class="newsletter-logo" />
