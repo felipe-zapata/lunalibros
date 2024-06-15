@@ -52,6 +52,9 @@ function add_script() {
    wp_register_script('catalogo-script', get_template_directory_uri() . '/assets/js/catalogo.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'catalogo-script');
 
+   wp_register_script('distribucion-script', get_template_directory_uri() . '/assets/js/distribucion.js', array ( 'jquery' ), 1.1, true);
+   wp_enqueue_script( 'distribucion-script');
+
    wp_register_script('interna-script', get_template_directory_uri() . '/assets/js/interna.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'interna-script');
 }
@@ -112,6 +115,46 @@ function query_custom_post_types(array $fields, int $post_id = null, $post_type,
    wp_reset_postdata(); // Reset post data to avoid conflicts
 
   return $posts;
+}
+
+/**
+ * Query posts IDs based on taxonomy and return the results.
+ *
+ * @param string $taxonomy The taxonomy to query.
+ *
+ * @return array A two dimensional array. First index is the taxonomy slug, second index is the IDs of the posts.
+ */
+function query_posts_ids_by_taxonomy(string $taxonomy) {
+   $query_results = array();
+   $terms = get_terms(
+      array(
+         'taxonomy' => $taxonomy, 
+         'hide_empty' => false
+      )
+   );
+
+  foreach ($terms as $term) {
+      $args = array(
+      'fields' => 'ids',
+      'tax_query' => array(
+         array(
+            'taxonomy' => 'pais',
+            'field' => 'slug',
+            'terms' => $term->slug,
+         ),
+      ),
+      );
+
+      $term_posts = new WP_Query($args);
+
+      foreach ($term_posts->posts as $post_id) {
+         $query_results[$term->name][] = $post_id;
+      }
+  }
+
+   wp_reset_postdata(); // Reset post data to avoid conflicts
+
+   return $query_results;
 }
 
 /**

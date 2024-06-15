@@ -94,7 +94,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 | Field Label | Field Name | Field Type | Others Details |
 |---|---|---|---|
-| Colección | coleccion | Taxonomy | Select the **Taxonomy: Coleccion** && Toogle on the ***Create Terms, Save Terms and Load Terms*** options && Set the **Appearance** to **Checkbox**. |
+| Colección | coleccion | Taxonomy | Select the **Taxonomy: Coleccion** && Toogle on the ***Create Terms, Save Terms and Load Terms*** options && Change the **"Return Value"** to **"Term Object"** && Set the **Appearance** to **Checkbox**. |
 | Cover | cover | Image | Change the **"Return Format"** to **"Image URL"** |
 | Autor | autor | Text | Switch to the Validation tab and mark as *"Required"*. |
 | ISBN | isbn | Text | |
@@ -136,7 +136,19 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-4. **Distributors**
+4. **Countries**
+
+    - Navigate to: `/wp-admin/edit.php?post_type=acf-taxonomy`
+    - Click on the " + Add New" button.
+    - Fill the following fields (pay special attention to the letters case):
+        - Post Type Key: pais
+        - Plural Label: Paises
+        - Singular Label: Pais
+    - Save the changes.
+
+---
+
+5. **Distributors**
 
 - Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
 - Click on the " + Add New" button.
@@ -152,9 +164,9 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 | Field Label | Field Name | Field Type | Others Details |
 |---|---|---|---|
+| País | pais | Taxonomy | Select the **Taxonomy: País** && Toogle on the ***Create Terms, Save Terms and Load Terms*** options && Change the **"Return Value"** to **"Term Object"** && Set the **Appearance** to **Select**. && Switch to the Validation tab and mark as *"Required"*. |
 | Ubicación | ubicacion | Text | Switch to the Validation tab and mark as *"Required"*. |
 | RRSS | rrss | Group | Change the **"Return Value"** to **"Link URL"** |
-| Logo | logo | Image | <r>**This is a "RRSS" subfield** </r> && Change the **"Return Format"** to **"Image URL"** |
 | Texto | texto | Text | <r>**This is a "RRSS" subfield** </r> |
 | URL | url | Link | <r>**This is a "RRSS" subfield** </r> |
 | Otro | otro | Text |  |
@@ -164,7 +176,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-4. **Authors**
+6. **Authors**
 
 - Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
 - Click on the " + Add New" button.
