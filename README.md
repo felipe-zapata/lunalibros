@@ -17,11 +17,12 @@ g { color: Green }
 1. Requirements
     - [Plugins](#plugins)
     - [Content](#content)
-        - [Home Page](#home-page)        
+        - [Home Page](#home-page)
         - [Post Types](#post-types)
 2. Content Administration
     - [Basic Pages](#basic-pages)
-    - [Collections](#collections)    
+    - [Page Descriptions](#page-descriptions)
+    - [Collections](#collections)
 
 ---
 
@@ -228,6 +229,21 @@ Now that the **"Home Page"** exists, we're required to create the additional pag
     - Publish a page with the following: 
         - Title (*Mandatory, please don't change the title*): "Nosotros"
     - Save changes.
+
+## Page Descriptions
+
+Now that the basic pages are available, we'll require to include some description to the pages, also, there's a promotion banner and a newsletter section whose content should be dynamic.
+
+- Navigate to the Theme's widget section: `/wp-admin/widgets.php`
+- For each active Widget add a "paragraph block" **(Other types of blocks are not supported and they could impact the site performance)**
+    - **Header Widget - Presentación:** *Publicamos poesía, ensayo y crónicaPublicamos poesía, ensayo y crónica*
+    - **Header Widget - Anuncio:** *¡EGAN BERNAL Y LOS HIJOS DE LA CORDILLERA PRONTO EN LIBRERÍAS!*
+    - **Footer Widget - Newsletter:** *Lorem ipsum dolor sit amet*
+    - **Catalogo Widget:** *Construiremos un catálogo que nos permita leer América desde América y aportar conocimientos sobre el continente, publicar textos útiles para estudiantes y docentes universitarios y lectores interesados en las ciencias sociales y humanas y presentar autores y visiones que contribuyen a poner en valor la palabra, pues el gran capital común del continente americano es nuestra lengua.*
+    - **Distribución Widget:** *Lorem ipsum dolor sit amet*
+    - **Blog Widget:** *Gozar Leyendo es un boletín quincenal de recomendaciones de libros por parte de Darío Jaramillo Agudelo, recetas para gozar leyendo en comunidad. Lecturas Lunáticas es un boletín mensual de nuestro equipo editorial que recorre los libros de nuestro catálogo.*
+    - **Nosotros Widget:** *Lorem ipsum dolor sit amet*
+- Click "Update" and review the content.
 
 ## Collections
 
