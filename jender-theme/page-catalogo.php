@@ -20,7 +20,11 @@ $total_authors_pages = $authors['total_pages'];
     <div class="boletines-header">
       <p class="boletines-luna">LUNA LIBROS</p>
       <h3 class="boletines-title">Catálogo</h3>
-      <div class="catalogo-description">Construiremos un catálogo que nos permita leer América desde América y aportar conocimientos sobre el continente, publicar textos útiles para estudiantes y docentes universitarios y lectores interesados en las ciencias sociales y humanas y presentar autores y visiones que contribuyen a poner en valor la palabra, pues el gran capital común del continente americano es nuestra lengua.</div>
+      <?php if ( is_active_sidebar( 'header-widget-presentacion' ) ) { ?>
+      <div id="header-widget-presentacion" class="catalogo-description">
+        <?php dynamic_sidebar( 'catalogo-widget' ); ?>
+      </div>
+      <?php } ?>
       <div class="catalogo-subtitulos">
         <div class="catalogo-subtitulos_activo" id="titulos-btn">Títulos</div>
         <div id="autores-btn">Autores</div>
@@ -93,15 +97,4 @@ $total_authors_pages = $authors['total_pages'];
       <!-- TODO: Fix pagination between authors and books -->
     </div>
   </section>
-  <section class="newsletter">
-    <img src="<?php echo get_template_directory_uri() .
-      "/assets/imagenes/luna.png;"; ?>" alt=" " class="newsletter-logo" />
-    <h6 class="newsletter-title">Si desea recibir Gozar Leyendo en su correo, solicítelo acá</h6>
-    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sodales potenti nascetur volutpat tortor, metus tempus molestie habitant nisi penatibus lacus ultrices non velit etiam lobortis parturient, aliquet rutrum</p>  
-    <form action="#" class="newsletter-subscribe">
-      <input type="email" class="newsletter-input" placeholder="INGRESA TU CORREO ELECTRÓNICO">
-      <input type="submit" value="SUSCRÍBETE" class="newsletter-submit">
-    </form>
-  </section>   
-</main>
 <?php get_footer(); ?>
