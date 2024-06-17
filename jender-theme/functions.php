@@ -61,7 +61,71 @@ function add_script() {
 
 add_action('wp_enqueue_scripts', 'add_script');
 
-add_theme_support( 'menus' );
+add_theme_support('menus');
+
+/**
+ * Adds custom sidebar widgets for the Jender Theme.
+ *
+ * @return void
+ */
+function jender_add_sidebar_widgets() {
+
+   $my_sidebars = array(
+      array(
+         'name'          => 'Header Widget - Presentación',
+         'id'            => 'header-widget-presentacion',
+         'description'   => 'Text shown in the "presentacion" widget area',
+      ),
+      array(
+         'name'          => 'Header Widget - Anuncio',
+         'id'            => 'header-widget-anuncio',
+         'description'   => 'Text shown in the "Anuncio" widget area',
+      ),
+      array(
+         'name'          => 'Footer Widget - Newsletter',
+         'id'            => 'footer-widget-newsletter',
+         'description'   => 'Text shown in the "Newsletter" widget area',
+      ),
+      array(
+         'name'          => 'Catalogo Widget',
+         'id'            => 'catalogo-widget',
+         'description'   => 'Text shown in the "Catalogo" widget area',
+      ),
+      array(
+         'name'          => 'Distribución Widget',
+         'id'            => 'distribucion-widget',
+         'description'   => 'Text shown in the "Distribución" widget area',
+         ),
+      array(
+         'name'          => 'Blog Widget',
+         'id'            => 'blog-widget',
+         'description'   => 'Text shown in the "Blog" widget area',
+      ),
+      array(
+         'name'          => 'Nosotros Widget',
+         'id'            => 'nosotros-widget',
+         'description'   => 'Text shown in the "Nosotros" widget area',
+      ),  
+   );
+
+   $defaults = array(
+      'name'          => 'Jender Theme Sidebar',
+      'id'            => 'jender-theme-sidebar',
+      'description'   => 'The Jender Theme Sidebar Widgets',
+      'class'         => '',
+      'before_widget' => '',
+      'after_widget'  => '',
+      'before_title'  => '',
+      'after_title'   => '',
+   );
+
+   foreach( $my_sidebars as $sidebar ) {
+      $args = wp_parse_args( $sidebar, $defaults );
+      register_sidebar( $args );
+   }
+}
+
+add_action('widgets_init', 'jender_add_sidebar_widgets');
 
 /**
  * Retrieves a list of custom post types based on the provided parameters.

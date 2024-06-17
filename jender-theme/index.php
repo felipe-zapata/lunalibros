@@ -13,7 +13,11 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish
 <main>
   <section class="presentacion">
     <h1 class="presentacion-title">Somos una casa editorial independiente</h1>
-    <p class="presentacion-description">Publicamos poesía, ensayo y crónica</p>
+    <?php if ( is_active_sidebar( 'header-widget-presentacion' ) ) { ?>
+    <div id="widget-area-presentacion" class="presentacion-description">
+      <?php dynamic_sidebar( 'header-widget-presentacion' ); ?>
+    </div>
+    <?php } ?>
     <div class="presentacion-mas">
       <a href="#" class="presentacion-button-mas">+</a>
       <a href="#" class="presentacion-button-text">Conoce más</a>
@@ -78,16 +82,4 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish
     <h6 class="quote-title">La música es el tiempo presente de los amores imposibles</h6>
     <p class="quote-name">DARÍO JARAMILLO AGUDELO</p>
   </section>    
-  <!--TODO: Show-->
-  <!-- <section class="newsletter">
-    <img src="<?php echo get_template_directory_uri()."/assets/imagenes/luna.png;"; ?>" alt=" " class="newsletter-logo" />
-    <h6 class="newsletter-title">Si desea recibir Gozar Leyendo en su correo, solicítelo acá</h6>
-    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sodales potenti nascetur volutpat tortor, metus tempus molestie habitant nisi penatibus lacus ultrices non velit etiam lobortis parturient, aliquet rutrum</p>  
-    <form action="#" class="newsletter-subscribe">
-      <input type="email" class="newsletter-input" placeholder="INGRESA TU CORREO ELECTRÓNICO">
-      <input type="submit" value="SUSCRÍBETE" class="newsletter-submit">
-    </form>
-  </section>    -->
-</main>
-
 <?php get_footer(); ?>

@@ -8,19 +8,13 @@
   <?php wp_head(); ?>
 </head>
 <body>
-
-<?php	
-$posts = get_posts([
-  'post_type'  => 'any',
-  'title' => 'Inicio',
-]);
-$header_anuncio = trim(strip_tags($posts[0]->post_content));
-$header_anuncio = empty($header_anuncio) ? '¡EGAN BERNAL Y LOS HIJOS DE LA CORDILLERA PRONTO EN LIBRERÍAS!' : $header_anuncio ;
-?>
-
   <header>
     <div class="topHeader">
-      <div class="topHeader-anuncio"><?php echo $header_anuncio; ?></div>
+      <?php if ( is_active_sidebar( 'header-widget-anuncio' ) ) { ?>
+      <div id="header-widget-anuncio" class="topHeader-anuncio">
+        <?php dynamic_sidebar( 'header-widget-anuncio' ); ?>
+      </div>
+      <?php } ?>
       <div class="topHeader-hashtag">#LEOINDEPENDIENTE</div>
     </div>
     <div class="header" id="header">
