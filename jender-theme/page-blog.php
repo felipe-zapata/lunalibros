@@ -35,4 +35,5 @@
     </article>
       <!-- TODO: Pagination -->
   </section>
+</main>
 <?php get_footer(); ?>

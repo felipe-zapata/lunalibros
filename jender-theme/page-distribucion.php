@@ -60,4 +60,5 @@ $distributors = query_custom_post_types($query_distributors, null, 'distribucion
     </div>
     <?php } ?>    
   </section>
+</main>
 <?php get_footer(); ?>

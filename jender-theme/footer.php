@@ -1,3 +1,4 @@
+<footer class="footer">
   <section class="newsletter">
     <img src="<?php echo get_template_directory_uri()."/assets/imagenes/luna.png;"; ?>" alt=" " class="newsletter-logo" />
     <h6 class="newsletter-title">Si desea recibir Gozar Leyendo en su correo, solicítelo acá</h6>
@@ -10,9 +11,7 @@
       <input type="email" class="newsletter-input" placeholder="INGRESA TU CORREO ELECTRÓNICO">
       <input type="submit" value="SUSCRÍBETE" class="newsletter-submit">
     </form>
-  </section>   
-</main>
-<footer class="footer">
+  </section>
   <h6 class="footer-text">Al leer se sale del tiempo y se viaja estando quieto</h6>
   <div class="footer-social">
     <a href="#">Facebook</a>

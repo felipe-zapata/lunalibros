@@ -49,7 +49,9 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish
     <?php foreach ($books as $book) { ?>
         <article class="boletines-item_catalogo">
           <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
-          <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
+          <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
+            <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
+          </a>
           <p class="boletines-item-description"><?php echo $book['descripcion'] ?></p>
         </article>
     <?php } ?>
@@ -65,10 +67,12 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish
       <?php foreach ($bulletins as $bulletin) { ?>
           <article class="boletines-item">
             <img src="<?php echo load_default_image($bulletin['imagen']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
-            <h4 class="boletines-item-title"><?php echo $bulletin['title'] ?></h4>
+            <a href="<?php echo $bulletin['permalink'] ?>" class="boletines-item-link">
+              <h4 class="boletines-item-title"><?php echo $bulletin['title'] ?></h4>
+            </a>
             <div class="boletines-item-description">
               <?php echo $bulletin['texto'] ?>
-            </div>            
+            </div>
           </article>
       <?php } ?>
     </div>
@@ -81,5 +85,6 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish
     <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/quote.png;"; ?>" alt=" " class="quote-img" />
     <h6 class="quote-title">La música es el tiempo presente de los amores imposibles</h6>
     <p class="quote-name">DARÍO JARAMILLO AGUDELO</p>
-  </section>    
+  </section>
+</main>
 <?php get_footer(); ?>
