@@ -4,7 +4,7 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luna Libros - <?php echo get_the_title($post->ID); ?></title>  
+  <title><?php bloginfo('name'); ?> - <?php echo get_the_title($post->ID); ?></title>
   <?php wp_head(); ?>
 </head>
 <body>

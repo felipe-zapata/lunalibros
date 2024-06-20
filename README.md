@@ -17,6 +17,7 @@ g { color: Green }
 1. Requirements
     - [Plugins](#plugins)
     - [Content](#content)
+        - [Web Site Name](#web-site-name)
         - [Home Page](#home-page)
         - [Post Types](#post-types)
 2. Content Administration
@@ -50,7 +51,19 @@ It's required to install and activate the required plugins for better support of
 
 It's required to have at least the whole navigation menu created as pages for the theme. Also, the post types and basic pages.
 
+### Web Site Name
+
+The first step is to set the Web Site Name, this is useful for Search Engine Optimization (SEO) and will present on each page title.
+
+1. Navigate to General Settings: `/wp-admin/options-general.php`
+2. Find the ***"Site Title"*** text field and include the site name.
+3. Find the ***"Tagline"*** text field and include a brief description for the site.
+4. Find the ***"Site Icon"*** file upload field and include a icon image for the site.
+5. Optionally check the other fields and update as prefered.
+6. Save Changes.
+
 ### Home Page
+
 We'll require to create a static page as Front Page (Home), please follow as adviced:
 
 1. Navigate to Pages: `/wp-admin/edit.php?post_type=page`
