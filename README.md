@@ -296,6 +296,5 @@ To create a new Book, we'll require to finish the [**"Post Types" steps for Stor
 
 - Navigate to: `/wp-admin/post-new.php?post_type=tienda`
 - Create a new store which can be linked to the books.
-- Change the post ***"Visibility"*** before publishing to private, this will avoid the access to the information for anonymus users.
 
 As this will be a relationship for books, try to add all the available stores before the first book.

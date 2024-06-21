@@ -2,7 +2,7 @@
 get_header();
 
 // Pestañas
-$distributors_structure = query_posts_ids_by_taxonomy('pais');
+$distributors_structure = query_posts_ids_by_taxonomy('pais', null, -1);
 
 // Lista de Distribuidores
 $query_distributors = array('ubicacion', 'rrss', 'otro');

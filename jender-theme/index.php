@@ -48,7 +48,9 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish
     <div class="boletines-articles">
     <?php foreach ($books as $book) { ?>
         <article class="boletines-item_catalogo">
-          <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+          <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
+            <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+          </a>
           <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
             <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
           </a>
@@ -66,7 +68,9 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish
     <div class="boletines-articles">
       <?php foreach ($bulletins as $bulletin) { ?>
           <article class="boletines-item">
-            <img src="<?php echo load_default_image($bulletin['imagen']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+            <a href="<?php echo $bulletin['permalink'] ?>" class="boletines-item-link">
+              <img src="<?php echo load_default_image($bulletin['imagen']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+            </a>
             <a href="<?php echo $bulletin['permalink'] ?>" class="boletines-item-link">
               <h4 class="boletines-item-title"><?php echo $bulletin['title'] ?></h4>
             </a>
