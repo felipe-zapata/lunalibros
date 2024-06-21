@@ -473,7 +473,7 @@
                 "label": "Compra en Linea",
                 "name": "compra_en_linea",
                 "aria-label": "",
-                "type": "group",
+                "type": "relationship",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -482,51 +482,22 @@
                     "class": "",
                     "id": ""
                 },
-                "layout": "block",
-                "sub_fields": [
-                    {
-                        "key": "field_666b3999200d6",
-                        "label": "Logo",
-                        "name": "logo",
-                        "aria-label": "",
-                        "type": "image",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "url",
-                        "library": "all",
-                        "min_width": "",
-                        "min_height": "",
-                        "min_size": "",
-                        "max_width": "",
-                        "max_height": "",
-                        "max_size": "",
-                        "mime_types": "",
-                        "preview_size": "medium"
-                    },
-                    {
-                        "key": "field_666b39a7200d7",
-                        "label": "URL",
-                        "name": "url",
-                        "aria-label": "",
-                        "type": "url",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "placeholder": ""
-                    }
-                ]
+                "post_type": [
+                    "tienda"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search",
+                    "post_type",
+                    "taxonomy"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_666b3ac6200d8",
@@ -555,6 +526,72 @@
                     "param": "post_type",
                     "operator": "==",
                     "value": "libro"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_6674c821f08b8",
+        "title": "Detalles de Tienda",
+        "fields": [
+            {
+                "key": "field_6674c822e5331",
+                "label": "Logo",
+                "name": "logo",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_6674c888e5332",
+                "label": "URL",
+                "name": "url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "tienda"
                 }
             ]
         ],
@@ -1064,5 +1101,93 @@
         "delete_with_user": false,
         "register_meta_box_cb": "",
         "enter_title_here": "Add Libro"
+    },
+    {
+        "key": "post_type_6674c7c935f1a",
+        "title": "Tiendas",
+        "menu_order": 0,
+        "active": true,
+        "post_type": "tienda",
+        "advanced_configuration": false,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Tiendas",
+            "singular_name": "Tienda",
+            "menu_name": "Tiendas",
+            "all_items": "All Tiendas",
+            "edit_item": "Edit Tienda",
+            "view_item": "View Tienda",
+            "view_items": "View Tiendas",
+            "add_new_item": "Add New Tienda",
+            "add_new": "Add New Tienda",
+            "new_item": "New Tienda",
+            "parent_item_colon": "Parent Tienda:",
+            "search_items": "Search Tiendas",
+            "not_found": "No tiendas found",
+            "not_found_in_trash": "No tiendas found in Trash",
+            "archives": "Tienda Archives",
+            "attributes": "Tienda Attributes",
+            "featured_image": "",
+            "set_featured_image": "",
+            "remove_featured_image": "",
+            "use_featured_image": "",
+            "insert_into_item": "Insert into tienda",
+            "uploaded_to_this_item": "Uploaded to this tienda",
+            "filter_items_list": "Filter tiendas list",
+            "filter_by_date": "Filter tiendas by date",
+            "items_list_navigation": "Tiendas list navigation",
+            "items_list": "Tiendas list",
+            "item_published": "Tienda published.",
+            "item_published_privately": "Tienda published privately.",
+            "item_reverted_to_draft": "Tienda reverted to draft.",
+            "item_scheduled": "Tienda scheduled.",
+            "item_updated": "Tienda updated.",
+            "item_link": "Tienda Link",
+            "item_link_description": "A link to a tienda."
+        },
+        "description": "",
+        "public": true,
+        "hierarchical": false,
+        "exclude_from_search": false,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "admin_menu_parent": "",
+        "show_in_admin_bar": true,
+        "show_in_nav_menus": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Posts_Controller",
+        "menu_position": "",
+        "menu_icon": {
+            "type": "dashicons",
+            "value": "dashicons-admin-post"
+        },
+        "rename_capabilities": false,
+        "singular_capability_name": "post",
+        "plural_capability_name": "posts",
+        "supports": [
+            "title",
+            "editor",
+            "thumbnail",
+            "custom-fields"
+        ],
+        "taxonomies": "",
+        "has_archive": false,
+        "has_archive_slug": "",
+        "rewrite": {
+            "permalink_rewrite": "post_type_key",
+            "with_front": "1",
+            "feeds": "0",
+            "pages": "1"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "can_export": true,
+        "delete_with_user": false,
+        "register_meta_box_cb": "",
+        "enter_title_here": ""
     }
 ]
