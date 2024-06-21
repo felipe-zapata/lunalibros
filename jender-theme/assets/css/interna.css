@@ -7,6 +7,11 @@
 .interna-image {
   flex-basis: 49%;
   flex-grow: 0;
+  margin: 0 auto;
+  border-radius: 5px;
+  max-width: 40%;
+  max-height: 70vh;
+  box-shadow: 0 0 5px -1px black, inset -1px 1px 2px rgba(255, 255, 255, 0.5);  
 }
 
 .interna-text {
@@ -71,8 +76,20 @@
 
 .interna-compra {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
+}
+
+.interna-compra-text {
+  flex: 1 1 100%;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  color: #6F7072;
+}
+
+.interna-compra-image {
+  margin-top: 1rem;
 }
 
 .interesar {

@@ -1,34 +1,48 @@
-<?php get_header(); ?>
+<?php
+/*
+Template Name: Single Libro
+*/
+$post_id = get_the_ID();
+$query_books = array('autor', 'cover', 'descripcion', 'coleccion', 'isbn', 'ficha_tecnica', 'pvp', 'compra_en_linea', 'prensa');
+$book = query_custom_post_types($query_books, $post_id, 'libro', 'publish', 1, 'DESC', 'post_date');
+$book = $book[0];
+$price_format = new NumberFormatter('es_CO', NumberFormatter::CURRENCY);
+get_header();
+?>
+<pre>
+    <?php print_r($book); ?>
+</pre>
 <main>
   <section class="interna">
     <!-- TODO: responsive for the image -->
-    <img class="interna-image" src="<?php echo get_template_directory_uri() . "/assets/imagenes/interna.png;"; ?>" alt=" "  />
+    <img class="interna-image" src="<?php echo load_default_image($book['cover']); ?>" alt=" " />    
     <div class="interna-text">
-      <p class="boletines-luna">HUMANIDADES</p>
-      <h3 class="boletines-title">Sobre la fotografía</h3>
-      <h4 class="interna-author">Walter Benjamin</h4>
+      <p class="boletines-luna">
+        <?php 
+        foreach ($book['coleccion'] as $coleccion) { 
+          echo strtoupper($coleccion->name);
+          if( next( $book['coleccion'] ) ) { 
+            echo ' - ';
+          }
+        }      
+        ?>
+      </p>
+      <h3 class="boletines-title"><?php echo $post->post_title ?></h3>
+      <h4 class="interna-author"><?php echo !empty($book['autor']) ? $book['autor'] : '' ?></h4>
       <div class="interna-subtitulos">
         <div class="interna-subtitulos_activo" id="description-btn">Descripción</div>
         <div id="ficha-btn">Ficha técnica</div>
       </div>
       <div class="interna-description interna-description_activo" id="interna-description">
-        Lorem ipsum dolor sit amet consectetur adipiscing elit sodales potenti nascetur volutpat tortor, metus tempus molestie habitant nisi penatibus lacus ultrices non velit etiam lobortis parturient, aliquet rutrum facilisis cubilia porta nec sagittis eget massa varius habitasse, lorem ipsum dolor sit amet consectetur adipiscing elit sodales potenti nascetur volutpat tortor, metus tempus molestie habitant nisi penatibus lacus ultrices non velit etiam lobortis parturient, aliquet rutrum facilisis cubilia porta nec sagittis eget massa varius habitasse, lorem ipsum dolor sit amet 
+        <?php echo !empty($book['descripcion']) ? htmlspecialchars_decode(nl2br($book['descripcion'])) : '' ?>
       </div>
       <div class="interna-description" id="interna-ficha">
-        Traducción de José Muñoz Millanes<br />
-        Sello: Pre-Textos América<br />
-        Colección: Humanidades<br />
-        Área temática: Filosofía<br />
-        156 páginas<br />
-        13 x 19 cm<br />
-        Rústica<br />
-        ISBN: 978-958-52419-1-6<br />
-        Octubre de 2019<br />
-        Distribución para Colombia, Ecuador y México
+        <?php echo !empty($book['ficha_tecnica']) ? htmlspecialchars_decode(nl2br($book['ficha_tecnica'])) : '' ?>
       </div>
       <div class="interna-compraTitulo">Compra en línea</div>
       <div class="interna-compra">
         <!-- TODO: links? dinamicos o fijos? -->
+        <div class="interna-compra-text"><?php echo !empty($book['pvp']) ? $price_format->formatCurrency($book['pvp'], 'COP') : '' ?></div>
         <img class="interna-compra-image" src="<?php echo get_template_directory_uri() . "/assets/imagenes/compra-logo.png;"; ?>" alt=" " />
         <img class="interna-compra-image" src="<?php echo get_template_directory_uri() . "/assets/imagenes/compra-logo-1.png;"; ?>" alt=" " />
         <img class="interna-compra-image" src="<?php echo get_template_directory_uri() . "/assets/imagenes/compra-logo-2.png;"; ?>" alt=" " />
