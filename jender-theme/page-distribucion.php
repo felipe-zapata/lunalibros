@@ -1,12 +1,12 @@
 <?php
-get_header();
+// Distributors Tabs Structure
+$distributors_structure = query_posts_ids_by_taxonomy('pais', array(), -1);
 
-// Pestañas
-$distributors_structure = query_posts_ids_by_taxonomy('pais', null, -1);
-
-// Lista de Distribuidores
+// Distributors List
 $query_distributors = array('ubicacion', 'rrss', 'otro');
 $distributors = query_custom_post_types($query_distributors, null, 'distribucion', 'publish', 10, 'DESC', 'post_date');
+
+get_header();
 ?>
 <main>
   <section class="distribucion">
