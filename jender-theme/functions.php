@@ -278,6 +278,7 @@ function query_single_afc_content(array $field, string $post_type, bool $light =
  * @param string $autor The author of the current post.
  * @param array|null $terms_array The terms to query. Default is null.
  * @param int $max_posts The maximum number of posts to retrieve. Default is 3.
+ * 
  * @return array The list of similar book posts.
  */
 function similar_book_posts (string|int $post_id, string $post_type, array $fields, string $taxonomy, string $autor, array $terms_array = null, int $max_posts = 3) {
@@ -335,11 +336,40 @@ function similar_book_posts (string|int $post_id, string $post_type, array $fiel
 }
 
 /**
+ * Retrieves collections from an array of collection objects.
+ *
+ * @param array $collections_wp An array of collection objects.
+ * 
+ * @return array An array of unique collection objects.
+ */
+function get_collections(array $collections_wp) {
+
+   $collections = array();
+
+   foreach ($collections_wp as $collection) {   
+
+      $collections[] = array_push($collections, ...$collection);
+   }
+
+   // Remove not collections objects
+   $collections = array_filter($collections, function ($collection) {
+         
+      return is_object($collection) && $collection->taxonomy === 'coleccion';
+   });
+
+   // Remove objects duplicates
+   $collections = array_unique($collections, SORT_REGULAR);
+
+   return $collections;   
+}
+
+/**
  * Retrieves a list of posts IDs of a specific post type with pagination.
  *
  * @param string $post_type The post type to query.
  * @param int $post_per_page The number of posts to retrieve per page. Defaults to 10.
  * @param int $paged The current page number. Defaults to 1.
+ * 
  * @return WP_Query The WP_Query object containing the posts ID information.
  */
 function pagination_post_ids($post_type, $post_per_page = 10, $paged = 1) {
