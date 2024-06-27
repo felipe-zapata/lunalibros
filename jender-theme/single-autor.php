@@ -5,6 +5,7 @@ Template Name: Single Autor
 
 // Post ID
 $post_id = get_the_ID();
+$max_posts = 3;
 
 // Author information
 $query_authors = array('foto', 'descripcion', 'libro');
@@ -21,6 +22,13 @@ if (!empty($author['libro'])) {
   }
 }
 
+// Randomly show $max_posts number of books
+shuffle($books);
+   
+if (count($books) >= $max_posts) {      
+  $books = array_slice($books, 0, $max_posts);
+}
+
 // Collections information
 $collections = array(); 
 
@@ -31,6 +39,9 @@ $collections = get_collections($collections);
 
 get_header();
 ?>
+<pre>
+  <?php print_r($author); ?>
+</pre>
 <main>
   <section class="interna">
     <!-- TODO: responsive for the image -->
