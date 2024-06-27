@@ -336,6 +336,34 @@ function similar_book_posts (string|int $post_id, string $post_type, array $fiel
 }
 
 /**
+ * Retrieves authors based on their titles and fields.
+ *
+ * @param array $titles An array of author titles.
+ * @param array $fields An array of fields to retrieve for each author.
+ * 
+ * @return array An array of authors matching the given titles and fields.
+ */
+function get_authors_by_title(array $titles, array $fields) {
+
+   $authors = array();
+
+   foreach ($titles as $title) {
+      $args = array(
+         'post_type' => 'autor',
+         'title' => $title,
+      );
+
+      $author = get_posts($args);
+
+      if (!empty($author) && is_array($author)) {
+         $authors[] = query_custom_post_types($fields, $author[0]->ID, $author[0]->post_type, 'all', 1)[0];
+      }
+   }
+
+   return $authors;
+}
+
+/**
  * Retrieves collections from an array of collection objects.
  *
  * @param array $collections_wp An array of collection objects.
