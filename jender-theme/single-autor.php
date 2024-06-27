@@ -39,9 +39,6 @@ $collections = get_collections($collections);
 
 get_header();
 ?>
-<pre>
-  <?php print_r($author); ?>
-</pre>
 <main>
   <section class="interna">
     <!-- TODO: responsive for the image -->
