@@ -27,6 +27,14 @@
   margin-bottom: 40px;
 }
 
+.interna-author-recommended {
+  margin-top: 1rem;
+  height: auto;  
+  width: auto;
+  max-width: 15rem;
+  max-height: 15rem;
+}
+
 .interna-subtitulos {
   display: flex;
   width: 300px;
@@ -52,6 +60,7 @@
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1.125rem;
+  text-align: justify;
   color: #6F7072;
   display: none;
   margin-bottom: 48px;

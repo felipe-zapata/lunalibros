@@ -27,10 +27,7 @@ if (!empty($book['compra_en_linea'])) {
 
 // Collections information
 $collections = array(); 
-
-foreach ($book['coleccion'] as $coleccion) { 
-  $collections[] = $coleccion->name;  
-}
+$collections = get_collections(array($book['coleccion']));
 
 get_header();
 ?>
@@ -42,7 +39,7 @@ get_header();
       <p class="boletines-luna">
         <?php 
         foreach ($collections as $collection) {
-          echo strtoupper($collection);
+          echo strtoupper($collection->name);
           
           if( next( $collections ) ) { 
             echo ' - ';
