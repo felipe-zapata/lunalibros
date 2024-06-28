@@ -178,35 +178,52 @@ function query_custom_post_types(array $fields, int $post_id = null, $post_type,
    
    wp_reset_postdata(); // Reset post data to avoid conflicts
 
-  return $posts;
+  return $posts ?? null;
 }
 
 /**
  * Query posts IDs based on taxonomy and return the results.
  *
  * @param string $taxonomy The taxonomy to query.
+ * @param int $max_posts The maximum number of posts to retrieve. Default is 10.
+ * @param array $explicit_terms The terms to query. Default is an empty array.
  *
- * @return array A two dimensional array. First index is the taxonomy slug, second index is the IDs of the posts.
+ * @return array A two dimensional array. First index is the taxonomy term name, second index is the IDs of the posts.
  */
-function query_posts_ids_by_taxonomy(string $taxonomy) {
+function query_posts_ids_by_taxonomy(string $taxonomy, array $explicit_terms = array(), int $max_posts = 10) {
    $query_results = array();
+
    $terms = get_terms(
       array(
          'taxonomy' => $taxonomy, 
          'hide_empty' => false
       )
-   );
+   ); 
+      
+   // Filter the terms array to use the explicit terms
+   if(!empty($terms) && !empty($explicit_terms)) {
+      
+      foreach ($explicit_terms as $explicit) {
+         
+         foreach ( $terms as $term ) {
+            $filtered_terms[] = $term->term_id === $explicit->term_id ? $term : null;
+        }
+      }
 
-  foreach ($terms as $term) {
+      $terms = array_filter($filtered_terms);
+   }
+
+   foreach ($terms as $term) {
       $args = array(
-      'fields' => 'ids',
-      'tax_query' => array(
-         array(
-            'taxonomy' => 'pais',
-            'field' => 'slug',
-            'terms' => $term->slug,
+         'fields' => 'ids',
+         'posts_per_page' => $max_posts,
+         'tax_query' => array(
+            array(
+               'taxonomy' => $taxonomy,
+               'field' => 'slug',
+               'terms' => $term->slug,
+            ),
          ),
-      ),
       );
 
       $term_posts = new WP_Query($args);
@@ -214,11 +231,107 @@ function query_posts_ids_by_taxonomy(string $taxonomy) {
       foreach ($term_posts->posts as $post_id) {
          $query_results[$term->name][] = $post_id;
       }
-  }
+   }
 
    wp_reset_postdata(); // Reset post data to avoid conflicts
 
    return $query_results;
+}
+
+/**
+ * Retrieves a list of content from a specific post type that match a given field value.
+ *
+ * @param array $field The field to search for. Should be an associative array where the key is the meta key and the value is the meta value.
+ * @param string $post_type The post type to search in.
+ * @param bool $light (Optional) Whether to return only the post IDs. Default is false.
+ * @param int $max_posts (Optional) The maximum number of posts to retrieve. Default is 5.
+ * 
+ * @return array The list of posts that match the given field value.
+ */
+function query_single_afc_content(array $field, string $post_type, bool $light = false, int $max_posts = 5) {
+
+   $args = array(      
+      'posts_per_page' => $max_posts,
+      'post_type' => $post_type,
+      'meta_key' => key($field),
+      'meta_value' => $field[key($field)],
+   );
+
+   if ($light) {
+      $args['fields'] = 'ids';
+   }
+   
+   $content = get_posts($args);
+
+   wp_reset_query(); // Reset query data to avoid conflicts
+
+   return $content;
+}
+
+/**
+ * Retrieves similar book posts based on the given parameters.
+ *
+ * @param string|int $post_id The ID of the current post.
+ * @param string $post_type The post type to search in.
+ * @param array $fields The fields to query for.
+ * @param string $taxonomy The taxonomy to query.
+ * @param string $autor The author of the current post.
+ * @param array|null $terms_array The terms to query. Default is null.
+ * @param int $max_posts The maximum number of posts to retrieve. Default is 3.
+ * @return array The list of similar book posts.
+ */
+function similar_book_posts (string|int $post_id, string $post_type, array $fields, string $taxonomy, string $autor, array $terms_array = null, int $max_posts = 3) {
+
+   $recommendations = array();
+
+   // Loop throug each taxonomy to get the posts IDs which match the taxonomy
+   $recommendations = query_posts_ids_by_taxonomy($taxonomy, $terms_array, $max_posts);
+
+   // Get similar posts IDs from the same author
+   if(!empty($autor)) {      
+      $autor_field = array('autor' => $autor);
+      $recommendations[$autor] = query_single_afc_content($autor_field, $post_type, true, $max_posts);
+   }
+
+   foreach ($recommendations as &$term) {
+      // Remove the current post from the results
+      $term = array_diff($term, array($post_id));
+
+      // If $recommendations is larger than $max_posts, take only the first $max_posts elements
+      if(count($term) > $max_posts) {
+         $term = array_slice($term, 0, $max_posts);
+      }
+   }
+
+   // Squeeze the $recommendations array
+   if (!empty($recommendations)) {
+      $recommendations = array_merge(...array_values($recommendations));
+      $recommendations = array_unique($recommendations);
+      // if $recommendations is larger than $max_posts, take $max_posts elements randomly
+      shuffle($recommendations);
+   }
+   
+   if (count($recommendations) >= $max_posts) {      
+      $recommendations = array_slice($recommendations, 0, $max_posts);
+   } else {
+      /**
+       * TODO: Improve the logic to get more similar posts
+       *      
+      while (count($recommendations) < $max_posts) {
+         $recommendations[] = query_single_afc_content(['' => ''], $post_type, true, $max_posts - count($recommendations));
+         // Remove the current post from the results
+         $recommendations = array_diff($recommendations, array($post_id));
+         $recommendations = array_unique($recommendations);
+         $recommendations = array_slice($recommendations, 0, $max_posts);
+      }
+       */
+   }
+
+   foreach ($recommendations as $key => $value) {
+      $recommendations[$key] = query_custom_post_types($fields, $value, $post_type, 'publish', 1, 'DESC','post_date')[0];
+   }
+   
+   return $recommendations;
 }
 
 /**
@@ -263,11 +376,11 @@ function pagination_post_ids($post_type, $post_per_page = 10, $paged = 1) {
 /**
  * Returns the URL of a default image if the provided image is empty or not an array with a 'url' key.
  *
- * @param array|string $image The image to be checked. It can be an array with a 'url' key or a string.
+ * @param array|string|null $image The image to be checked. It can be an array with a 'url' key or a string.
  * 
  * @return string The URL of the image.
  */
-function load_default_image(array|string $image) {
+function load_default_image(array|string|null $image) {
    $default_image = get_template_directory_uri() . '/assets/imagenes/libro.png';
 
    if (is_array($image) && isset($image['url'])) {

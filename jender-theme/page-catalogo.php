@@ -36,8 +36,12 @@ $total_authors_pages = $authors['total_pages'];
           $book = query_custom_post_types($query_books, $book_id, 'libro', 'publish', 1, 'DESC', 'post_date')[0];
       ?>
       <article class="boletines-item_catalogo">
-        <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
-        <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
+        <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
+          <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+        </a>
+        <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
+          <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
+        </a>
         <p class="boletines-item-description"><?php echo $book['descripcion'] ?></p>
       </article>
       <?php 
@@ -69,8 +73,12 @@ $total_authors_pages = $authors['total_pages'];
           $author = query_custom_post_types($query_authors, $author_id, 'autor', 'publish', 1, 'DESC', 'post_date')[0];
       ?>
       <article class="boletines-item_catalogo">
-        <img src="<?php echo load_default_image($author['foto']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
-        <h4 class="boletines-item-title"><?php echo $author['title'] ?></h4>
+        <a href="<?php echo $author['permalink'] ?>" class="boletines-item-link">  
+          <img src="<?php echo load_default_image($author['foto']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+        </a>
+        <a href="<?php echo $author['permalink'] ?>" class="boletines-item-link">
+          <h4 class="boletines-item-title"><?php echo $author['title'] ?></h4>
+        </a>
         <p class="boletines-item-description"><?php echo $author['descripcion'] ?></p>
       </article>
       <?php 
@@ -97,4 +105,5 @@ $total_authors_pages = $authors['total_pages'];
       <!-- TODO: Fix pagination between authors and books -->
     </div>
   </section>
+</main>
 <?php get_footer(); ?>

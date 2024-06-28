@@ -17,6 +17,7 @@ g { color: Green }
 1. Requirements
     - [Plugins](#plugins)
     - [Content](#content)
+        - [Web Site Name](#web-site-name)
         - [Home Page](#home-page)
         - [Post Types](#post-types)
 2. Content Administration
@@ -50,7 +51,19 @@ It's required to install and activate the required plugins for better support of
 
 It's required to have at least the whole navigation menu created as pages for the theme. Also, the post types and basic pages.
 
+### Web Site Name
+
+The first step is to set the Web Site Name, this is useful for Search Engine Optimization (SEO) and will present on each page title.
+
+1. Navigate to General Settings: `/wp-admin/options-general.php`
+2. Find the ***"Site Title"*** text field and include the site name.
+3. Find the ***"Tagline"*** text field and include a brief description for the site.
+4. Find the ***"Site Icon"*** file upload field and include a icon image for the site.
+5. Optionally check the other fields and update as prefered.
+6. Save Changes.
+
 ### Home Page
+
 We'll require to create a static page as Front Page (Home), please follow as adviced:
 
 1. Navigate to Pages: `/wp-admin/edit.php?post_type=page`
@@ -69,17 +82,41 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 1. **Collections**
 
-    - Navigate to: `/wp-admin/edit.php?post_type=acf-taxonomy`
-    - Click on the " + Add New" button.
-    - Fill the following fields (pay special attention to the letters case):
-        - Post Type Key: coleccion
-        - Plural Label: Colecciones
-        - Singular Label: Coleccion
-    - Save the changes.
+- Navigate to: `/wp-admin/edit.php?post_type=acf-taxonomy`
+- Click on the " + Add New" button.
+- Fill the following fields (pay special attention to the letters case):
+    - Post Type Key: coleccion
+    - Plural Label: Colecciones
+    - Singular Label: Coleccion
+- Save the changes.
 
 ---
 
-2. **Books**
+2. **Stores**
+
+- Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
+- Click on the " + Add New" button.
+- Fill the following fields (pay special attention to the letters case):
+    - Post Type Key: tienda
+    - Plural Label: Tiendas
+    - Singular Label: Tienda
+- Save the changes.
+- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
+- Next to the *Field Groups* title, make click on " + Add New" 
+- Enter a title for the Field Group: **"Detalles de Tienda"**
+- For each field required for the **Tienda post type** create as the following example (pay special attention to the letters case).
+
+| Field Label | Field Name | Field Type | Others Details |
+|---|---|---|---|
+| Logo | logo | Image | Switch to the Validation tab and mark as *"Required"* && Change the **"Return Format"** to **"Image URL"** |
+| URL | url | URL | |
+
+- Scroll to the settings section and change the Rules for this field group be shown just for ***"Tienda"***.
+- Save the changes and verify when adding a new **Tienda**: `/wp-admin/edit.php?post_type=libro`.
+
+---
+
+3. **Books**
 
 - Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
 - Click on the " + Add New" button.
@@ -103,9 +140,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 | Ficha Técnica | ficha_tecnica | Text Area | |
 | Ubicación | ubicacion | Text | Switch to the Validation tab and mark as *"Required"*. |
 | PVP | pvp | Number | |
-| Compra en Linea | compra_en_linea | Group | |
-| Logo | logo | Image | <r>**This is a "Compra en Linea" subfield** </r> && Change the **"Return Format"** to **"Image URL"** |
-| URL | url | Link | <r>**This is a "Compra en Linea" subfield** </r> |
+| Compra en Linea | compra_en_linea | Relationship | Add the **Post Type "Tienda"** to the filter |
 | Prensa | prensa | WYSIWYG Editor | |
 
 - Scroll to the settings section and change the Rules for this field group be shown just for ***"Libro"***.
@@ -113,7 +148,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-3. **Blogs**
+4. **Blogs**
 
 - Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
 - Click on the " + Add New" button.
@@ -137,7 +172,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-4. **Countries**
+5. **Countries**
 
     - Navigate to: `/wp-admin/edit.php?post_type=acf-taxonomy`
     - Click on the " + Add New" button.
@@ -149,7 +184,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-5. **Distributors**
+6. **Distributors**
 
 - Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
 - Click on the " + Add New" button.
@@ -169,7 +204,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 | Ubicación | ubicacion | Text | Switch to the Validation tab and mark as *"Required"*. |
 | RRSS | rrss | Group | Change the **"Return Value"** to **"Link URL"** |
 | Texto | texto | Text | <r>**This is a "RRSS" subfield** </r> |
-| URL | url | Link | <r>**This is a "RRSS" subfield** </r> |
+| URL | url | URL | <r>**This is a "RRSS" subfield** </r> |
 | Otro | otro | Text |  |
 - Save the changes and verify when adding a new *Distribución:* `/wp-admin/edit.php?post_type=distribucion`.
 
@@ -177,7 +212,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-6. **Authors**
+7. **Authors**
 
 - Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
 - Click on the " + Add New" button.
@@ -199,7 +234,6 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 - Scroll to the settings section and change the Rules for this field group be shown just for ***"Autor"***.
 - Save the changes and verify when adding a new *Distribución:* `/wp-admin/edit.php?post_type=distribucion`.
-
 
 ---
 
@@ -249,9 +283,18 @@ Now that the basic pages are available, we'll require to include some descriptio
 
 To create a new Book, we'll require to finish the [**"Post Types" steps for Collections and Books**](#post-types) first, when these are done, we'll require to add the collections available for the books: 
 
-- Navigate to: `wp-admin/edit-tags.php?taxonomy=coleccion&post_type=libro`
+- Navigate to: `/wp-admin/edit-tags.php?taxonomy=coleccion&post_type=libro`
 - Fill the "Add New Coleccion" form (pay special attention to the letters case):
     - Name: Humanidades
     - Slug; humanidades
     - Click the **"Add New Coleccion"** button.
 - Add the remaining Collections (América, Creación, Pre-Textos América).
+
+## Stores
+
+To create a new Book, we'll require to finish the [**"Post Types" steps for Stores and Books**](#post-types) first, when these are done, we'll require to add the collections available for the books: 
+
+- Navigate to: `/wp-admin/post-new.php?post_type=tienda`
+- Create a new store which can be linked to the books.
+
+As this will be a relationship for books, try to add all the available stores before the first book.
