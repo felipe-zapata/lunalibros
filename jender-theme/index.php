@@ -7,7 +7,7 @@ $books = query_custom_post_types($query_books, null, 'libro', 'publish', 3, 'DES
 
 // Catalogo de Boletines
 $query_bulletins = array('imagen', 'texto');
-$bulletins = query_custom_post_types($query_bulletins, null, 'boletin', 'publish', 2, 'DESC', 'post_date');
+$bulletins = query_custom_post_types($query_bulletins, null, 'blog', 'publish', 2, 'DESC', 'post_date');
 ?>
 
 <main>

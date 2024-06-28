@@ -55,6 +55,9 @@ function add_script() {
    wp_register_script('distribucion-script', get_template_directory_uri() . '/assets/js/distribucion.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'distribucion-script');
 
+   wp_register_script('blog-script', get_template_directory_uri() . '/assets/js/blog.js', array ( 'jquery' ), 1.1, true);
+   wp_enqueue_script( 'blog-script');
+
    wp_register_script('interna-script', get_template_directory_uri() . '/assets/js/interna.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'interna-script');
 }
