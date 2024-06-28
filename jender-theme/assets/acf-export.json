@@ -104,6 +104,31 @@
         "title": "Detalles de Blog",
         "fields": [
             {
+                "key": "field_667daf9084fca",
+                "label": "Tópico",
+                "name": "topico",
+                "aria-label": "",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "topico",
+                "add_term": 1,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "object",
+                "field_type": "checkbox",
+                "bidirectional": 0,
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional_target": []
+            },
+            {
                 "key": "field_666880b8ef392",
                 "label": "Imagen",
                 "name": "imagen",
@@ -154,7 +179,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "boletin"
+                    "value": "blog"
                 }
             ]
         ],
@@ -713,6 +738,78 @@
             "back_to_items": "← Go to paises",
             "item_link": "Pais Link",
             "item_link_description": "A link to a pais"
+        },
+        "description": "",
+        "capabilities": {
+            "manage_terms": "manage_categories",
+            "edit_terms": "manage_categories",
+            "delete_terms": "manage_categories",
+            "assign_terms": "edit_posts"
+        },
+        "public": 1,
+        "publicly_queryable": 1,
+        "hierarchical": 0,
+        "show_ui": 1,
+        "show_in_menu": 1,
+        "show_in_nav_menus": 1,
+        "show_in_rest": 1,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Terms_Controller",
+        "show_tagcloud": 1,
+        "show_in_quick_edit": 1,
+        "show_admin_column": 0,
+        "rewrite": {
+            "permalink_rewrite": "taxonomy_key",
+            "with_front": "1",
+            "rewrite_hierarchical": "0"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "default_term": {
+            "default_term_enabled": "0"
+        },
+        "sort": 0,
+        "meta_box": "default",
+        "meta_box_cb": "",
+        "meta_box_sanitize_cb": ""
+    },
+    {
+        "key": "taxonomy_667dad3658d43",
+        "title": "Tópicos",
+        "menu_order": 0,
+        "active": true,
+        "taxonomy": "topico",
+        "object_type": "",
+        "advanced_configuration": 0,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Tópicos",
+            "singular_name": "Tópico",
+            "menu_name": "Temas",
+            "all_items": "All Temas",
+            "edit_item": "Edit tema",
+            "view_item": "View tema",
+            "update_item": "Update tema",
+            "add_new_item": "Add New tema",
+            "new_item_name": "New tema Name",
+            "search_items": "Search Temas",
+            "popular_items": "Popular Temas",
+            "separate_items_with_commas": "Separate temas with commas",
+            "add_or_remove_items": "Add or remove temas",
+            "choose_from_most_used": "Choose from the most used temas",
+            "most_used": "",
+            "not_found": "No temas found",
+            "no_terms": "No temas",
+            "name_field_description": "",
+            "slug_field_description": "",
+            "desc_field_description": "",
+            "items_list_navigation": "Temas list navigation",
+            "items_list": "Temas list",
+            "back_to_items": "← Go to temas",
+            "item_link": "tema Link",
+            "item_link_description": "A link to a tema"
         },
         "description": "",
         "capabilities": {
