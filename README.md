@@ -241,7 +241,8 @@ This is the most dynamic content on the site, so requires especial attention whe
 |---|---|---|---|
 | Tópico | topico | Taxonomy | Select the **Taxonomy: Tópico** && Toogle on the ***Create Terms, Save Terms and Load Terms*** options && Change the **"Return Value"** to **"Term Object"** && Set the **Appearance** to **Checkbox** && Switch to the Validation tab and mark as *"Required"*. |
 | Imagen | imagen | Image | Change the **"Return Format"** to **"Image URL"** |
-| Text | Text | WYSIWYG Editor | |
+| Descripción | descripcion | Text | |
+| Texto | Text | WYSIWYG Editor | |
 - Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=blog`.
 
 - Scroll to the settings section and change the Rules for this field group be shown just for ***"Blogs"***.
