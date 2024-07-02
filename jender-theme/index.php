@@ -19,8 +19,8 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'blog', 'publish', 
     </div>
     <?php } ?>
     <div class="presentacion-mas">
-      <a href="#" class="presentacion-button-mas">+</a>
-      <a href="#" class="presentacion-button-text">Conoce más</a>
+      <a href="/nosotros" class="presentacion-button-mas">+</a>
+      <a href="/nosotros" class="presentacion-button-text">Conoce más</a>
     </div>
     <div class="presentacion-lateral" id="presentacion-lateral">
       <div>Un nuevo boletín todos los meses</div>

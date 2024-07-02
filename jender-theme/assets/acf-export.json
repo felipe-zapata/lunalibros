@@ -154,6 +154,26 @@
                 "preview_size": "medium"
             },
             {
+                "key": "field_66818a95c8b8e",
+                "label": "Descripción",
+                "name": "descripcion",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
                 "key": "field_666880c4ef393",
                 "label": "Texto",
                 "name": "texto",
