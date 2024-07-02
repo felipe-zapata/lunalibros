@@ -15,6 +15,9 @@ $book = $book[0];
 // Recommended books
 $recommended_books = similar_book_posts($post_id, 'libro', $query_books, 'coleccion', $book['autor'], $book['coleccion'], 3);
 
+// Authors information
+$author = get_authors_by_title(array($book['autor']), array())[0];
+
 // Stores information
 $query_stores = array('url', 'logo');
 $stores = array();
@@ -48,7 +51,15 @@ get_header();
         ?>
       </p>
       <h3 class="boletines-title"><?php echo $post->post_title ?></h3>
-      <h4 class="interna-author"><?php echo !empty($book['autor']) ? $book['autor'] : '' ?></h4>
+      <h4 class="interna-author">
+        <?php if (!empty($author)) { ?>
+          <a href="<?php echo $author['permalink']; ?>">
+            <?php echo $author['title']; ?>
+          </a>
+        <?php } else { ?>
+          <?php echo $book['autor']; ?>
+        <?php } ?>
+      </h4>
       <div class="interna-subtitulos">
         <div class="interna-subtitulos_activo" id="description-btn">Descripción</div>
         <div id="ficha-btn">Ficha técnica</div>

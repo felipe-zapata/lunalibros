@@ -2,7 +2,7 @@
 get_header();
 
 // Paginacion
-$max_to_show = 3;
+$max_to_show = 12;
 $current_page = get_query_var('paged') ? get_query_var('paged') : 1;
 
 // Catalogo de Libros

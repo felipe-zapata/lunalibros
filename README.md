@@ -148,31 +148,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-4. **Blogs**
-
-- Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
-- Click on the " + Add New" button.
-- Fill the following fields (pay special attention to the letters case):
-    - Post Type Key: blog
-    - Plural Label: Blogs
-    - Singular Label: Blog
-- Save the changes.
-- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
-- Next to the *Field Groups* title, make click on " + Add New" 
-    - Enter a title for the Field Group: **"Detalles de Blog"**
-    - For each field required for the **Blog post type** create as the following example (pay special attention to the letters case).
-
-| Field Label | Field Name | Field Type | Others Details |
-|---|---|---|---|
-| Imagen | imagen | Image | Change the **"Return Format"** to **"Image URL"** |
-| Text | Text | WYSIWYG Editor | |
-- Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=blog`.
-
-- Scroll to the settings section and change the Rules for this field group be shown just for ***"Blogs"***.
-
----
-
-5. **Countries**
+4. **Countries**
 
     - Navigate to: `/wp-admin/edit.php?post_type=acf-taxonomy`
     - Click on the " + Add New" button.
@@ -184,7 +160,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-6. **Distributors**
+5. **Distributors**
 
 - Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
 - Click on the " + Add New" button.
@@ -212,7 +188,7 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 ---
 
-7. **Authors**
+6. **Authors**
 
 - Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
 - Click on the " + Add New" button.
@@ -234,6 +210,42 @@ This is the most dynamic content on the site, so requires especial attention whe
 
 - Scroll to the settings section and change the Rules for this field group be shown just for ***"Autor"***.
 - Save the changes and verify when adding a new *Distribución:* `/wp-admin/edit.php?post_type=distribucion`.
+
+7. **Topics**
+
+- Navigate to: `/wp-admin/edit.php?post_type=acf-taxonomy`
+- Click on the " + Add New" button.
+- Fill the following fields (pay special attention to the letters case):
+    - Post Type Key: topico
+    - Plural Label: Tópicos
+    - Singular Label: Tópico
+- Save the changes.
+
+---
+
+8. **Blogs**
+
+- Navigate to: `/wp-admin/edit.php?post_type=acf-post-type`
+- Click on the " + Add New" button.
+- Fill the following fields (pay special attention to the letters case):
+    - Post Type Key: blog
+    - Plural Label: Blogs
+    - Singular Label: Blog
+- Save the changes.
+- Navigate to: `/wp-admin/edit.php?post_type=acf-field-group`
+- Next to the *Field Groups* title, make click on " + Add New" 
+    - Enter a title for the Field Group: **"Detalles de Blog"**
+    - For each field required for the **Blog post type** create as the following example (pay special attention to the letters case).
+
+| Field Label | Field Name | Field Type | Others Details |
+|---|---|---|---|
+| Tópico | topico | Taxonomy | Select the **Taxonomy: Tópico** && Toogle on the ***Create Terms, Save Terms and Load Terms*** options && Change the **"Return Value"** to **"Term Object"** && Set the **Appearance** to **Checkbox** && Switch to the Validation tab and mark as *"Required"*. |
+| Imagen | imagen | Image | Change the **"Return Format"** to **"Image URL"** |
+| Descripción | descripcion | Text | |
+| Texto | Text | WYSIWYG Editor | |
+- Save the changes and verify when adding a new *Book:* `/wp-admin/edit.php?post_type=blog`.
+
+- Scroll to the settings section and change the Rules for this field group be shown just for ***"Blogs"***.
 
 ---
 

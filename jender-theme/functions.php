@@ -55,6 +55,9 @@ function add_script() {
    wp_register_script('distribucion-script', get_template_directory_uri() . '/assets/js/distribucion.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'distribucion-script');
 
+   wp_register_script('blog-script', get_template_directory_uri() . '/assets/js/blog.js', array ( 'jquery' ), 1.1, true);
+   wp_enqueue_script( 'blog-script');
+
    wp_register_script('interna-script', get_template_directory_uri() . '/assets/js/interna.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'interna-script');
 }
@@ -333,6 +336,34 @@ function similar_book_posts (string|int $post_id, string $post_type, array $fiel
    }
    
    return $recommendations;
+}
+
+/**
+ * Retrieves authors based on their titles and fields.
+ *
+ * @param array $titles An array of author titles.
+ * @param array $fields An array of fields to retrieve for each author.
+ * 
+ * @return array An array of authors matching the given titles and fields.
+ */
+function get_authors_by_title(array $titles, array $fields) {
+
+   $authors = array();
+
+   foreach ($titles as $title) {
+      $args = array(
+         'post_type' => 'autor',
+         'title' => $title,
+      );
+
+      $author = get_posts($args);
+
+      if (!empty($author) && is_array($author)) {
+         $authors[] = query_custom_post_types($fields, $author[0]->ID, $author[0]->post_type, 'all', 1)[0];
+      }
+   }
+
+   return $authors;
 }
 
 /**
