@@ -30,6 +30,9 @@ function add_css() {
    wp_register_style('blog', get_template_directory_uri() . '/assets/css/blog.css', false,'1.1','all');
    wp_enqueue_style( 'blog');
 
+   wp_register_style('nosotros', get_template_directory_uri() . '/assets/css/nosotros.css', false,'1.1','all');
+   wp_enqueue_style( 'nosotros');
+
    wp_register_style('noto',"https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap", false,'1.1','all');
    wp_enqueue_style( 'noto');
 
@@ -57,6 +60,9 @@ function add_script() {
 
    wp_register_script('blog-script', get_template_directory_uri() . '/assets/js/blog.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'blog-script');
+
+   wp_register_script('nosotros-script', get_template_directory_uri() . '/assets/js/nosotros.js', array ( 'jquery' ), 1.1, true);
+   wp_enqueue_script( 'nosotros-script');
 
    wp_register_script('interna-script', get_template_directory_uri() . '/assets/js/interna.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'interna-script');
