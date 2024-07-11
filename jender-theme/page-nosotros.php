@@ -137,7 +137,7 @@
     </div>
     <div class="post nosotros-section">
         <p class="nosotros-tag">LUNA LIBROS</p>
-        <h4 class="nosotros-subtitle">Servicios editorialies</h4>
+        <h4 class="nosotros-subtitle">Servicios editoriales</h4>
         <p class="nosotros-paragraph">
             Construiremos un catálogo que nos permita leer América desde América y aportar conocimientos sobre el continente, 
             publicar textos útiles para estudiantes y docentes universitarios y lectores interesados en las ciencias sociales y 
