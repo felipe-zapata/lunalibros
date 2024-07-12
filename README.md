@@ -288,7 +288,25 @@ Now that the basic pages are available, we'll require to include some descriptio
     - **Catalogo Widget:** *Construiremos un catálogo que nos permita leer América desde América y aportar conocimientos sobre el continente, publicar textos útiles para estudiantes y docentes universitarios y lectores interesados en las ciencias sociales y humanas y presentar autores y visiones que contribuyen a poner en valor la palabra, pues el gran capital común del continente americano es nuestra lengua.*
     - **Distribución Widget:** *Lorem ipsum dolor sit amet*
     - **Blog Widget:** *Gozar Leyendo es un boletín quincenal de recomendaciones de libros por parte de Darío Jaramillo Agudelo, recetas para gozar leyendo en comunidad. Lecturas Lunáticas es un boletín mensual de nuestro equipo editorial que recorre los libros de nuestro catálogo.*
-    - **Nosotros Widget:** *Lorem ipsum dolor sit amet*
+    - **Nosotros Widgets:**
+        - **Nosotros Title Widget:** (Use a paragraph) *Lorem ipsum dolor sit amet*
+        - **Nosotros Objective Widget:** (Use a paragraph) *Construiremos un catálogo que nos permita leer América desde América y aportar conocimientos sobre el continente, publicar textos útiles para estudiantes y docentes universitarios y lectores interesados en las ciencias sociales y humanas y presentar autores y visiones que contribuyen a poner en valor la palabra, pues el gran capital común del continente americano es nuestra lengua*.
+        - **Nosotros Decalogue Widget:** (Use a list) 
+            - *Goza leyendo.*
+            - *Es un malabarista, cuando lee tiene un pie en la tierra y otro en la luna.*
+            - *Un libro lo lleva a otro libro.*
+            - *Considera la lectura como un acto total.*
+            - *Cuando lee por placer, no le importa aprender cosas.*
+            - *Disfruta el silencio de la lectura.*
+            - *Al leer se sale del tiempo y viaja estando quieto.*
+            - *Está loco por la poesía, el ensayo y la narrativa.*
+            - *La lectura es su ocio menos costoso.*
+            - *Sabe que no todo está en los libros, pero reconoce que los libros producen cosas fuera de ellos.*
+        - **Nosotros Editorial Widget:** (Use a paragraph)  *Construiremos un catálogo que nos permita leer América desde América y aportar conocimientos sobre el continente, publicar textos útiles para estudiantes y docentes universitarios y lectores interesados en las ciencias sociales y humanas y presentar autores y visiones que contribuyen a poner en valor la palabra, pues el gran capital común del continente americano es nuestra lengua*.
+        - **Nosotros FAQ Widget:** (Use a list, separate the question from the answer using a pipe `|`) 
+            - ¿Qué tipo de libros y autores publican? | En Luna Libros escogemos los autores de poesía, ensayo y crónica más destacados en nuestra lengua y traducimos libros del francés e inglés, principalmente de filosofía e historia. Publicamos en promedio tres títulos al año. Un Autor Lunático es un autor consagrado, con trayectoria, cuya obra es reconocida por los lectores y la crítica.
+            - Tengo un manuscrito, ¿qué servicios pueden prestarme? | Cuando prestamos los servicios editoriales nos aseguramos de cuidar todo el proceso, desde la corrección hasta el diseño y la impresión, para que el cliente se encargue de la promoción y distribución del libro. Si está interesado, puede ver más información aquí.
+            - ¿Dónde encuentro los libros de Luna Libros? | Nuestros libros están disponibles en formato impreso en Colombia, Argentina, Chile y México. Puede ver más información de los puntos de venta aquí. Algunos libros de nuestro catálogo también están disponibles como libro electrónico o audiolibro. En cada título aparecen los formatos. Puede ver más información aquí.
 - Click "Update" and review the content.
 
 ## Collections

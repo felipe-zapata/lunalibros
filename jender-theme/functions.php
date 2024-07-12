@@ -111,10 +111,30 @@ function jender_add_sidebar_widgets() {
          'description'   => 'Text shown in the "Blog" widget area',
       ),
       array(
-         'name'          => 'Nosotros Widget',
-         'id'            => 'nosotros-widget',
-         'description'   => 'Text shown in the "Nosotros" widget area',
-      ),  
+         'name'          => 'Nosotros Title Widget',
+         'id'            => 'nosotros-title-widget',
+         'description'   => 'Text shown in the "Quiénes Somos" widget area',
+      ),
+      array(
+         'name'          => 'Nosotros Objective Widget',
+         'id'            => 'nosotros-objective-widget',
+         'description'   => 'Text shown in the "Nuestro Objetivo" widget area',
+      ),
+      array(
+         'name'          => 'Nosotros Decalogue Widget',
+         'id'            => 'nosotros-decalogue-widget',
+         'description'   => 'Text shown in the "Decalogo del Lector Lunatico" widget area',
+      ),
+      array(
+         'name'          => 'Nosotros Editorial Widget',
+         'id'            => 'nosotros-editorial-widget',
+         'description'   => 'Text shown in the "Servicios Editoriales" widget area',
+      ),
+      array(
+         'name'          => 'Nosotros FAQ Widget',
+         'id'            => 'nosotros-faq-widget',
+         'description'   => 'Text shown in the "Preguntas Frecuentes" widget area',
+      ),
    );
 
    $defaults = array(
@@ -455,4 +475,139 @@ function load_default_image(array|string|null $image) {
    }
 
    return $image ?: $default_image;
+}
+
+/**
+ * Generate HTML for a decalogue based on input HTML phrases and images.
+ *
+ * @param object $html_phrases The HTML phrases object.
+ * @param array $images The array of images.
+ * 
+ * @return string The generated HTML for the decalogue.
+ */
+function generate_decalogue_html(object $html_phrases, array $images) {
+   $doc = new DOMDocument();
+   $liValues = array();
+   $html = '';
+
+   $doc->loadHTML('<meta charset="utf8">' . $html_phrases->content);
+   $liList = $doc->getElementsByTagName('li');
+
+   foreach ($liList as $li) {
+      $liValues[] = $li->nodeValue;
+   }
+
+   $number_of_images = count($liValues);
+   $images = array_slice($images, 0, $number_of_images);
+
+   for ($i = 0; $i < $number_of_images; $i++) {
+      $html .= '
+      <div class="flip-container">
+         <div class="card">
+            <div class="front">
+               <img src="'.$images[$i].'" alt=" " class="img-fluid radius-image nosotros-image">
+            </div>
+            <div class="back">
+               <h4>'.($i+1).'</h4>
+               <p>'.htmlentities($liValues[$i], ENT_SUBSTITUTE, 'UTF-8').'</p>
+            </div>
+         </div>
+      </div>';
+   }
+
+   return $html;
+}
+
+/**
+ * Generates HTML for a FAQ section based on the provided HTML content.
+ *
+ * @param object $html_faq The HTML content containing the FAQ section.
+ * 
+ * @return string The generated HTML for the FAQ section.
+ */
+function generate_faq_html(object $html_faq) {
+   $doc = new DOMDocument();
+   $html = '';
+   $faq_item = array();
+
+   libxml_use_internal_errors(true); // Disable error warnings
+   $doc->loadHTML('<?xml encoding="utf-8" ?>' . $html_faq->content, LIBXML_NOERROR | LIBXML_NOWARNING);
+   libxml_clear_errors(); // Restore error warnings
+   $ul = $doc->getElementsByTagName('ul')->item(0);
+
+   foreach ($ul->childNodes as $li) {
+      if ($li->nodeType == XML_ELEMENT_NODE && $li->nodeName == 'li') {
+            $faq_item[] = $doc->saveHTML($li);
+      }
+   }
+   
+   foreach ($faq_item as $item) {
+      list($question, $answer) = explode("|", $item);
+
+      $html .= '
+         <div class="qa-container">
+            <button class="qa-button"></button>
+            <div class="qa-question">'.strip_tags($question).'</div>
+            <div class="qa-answer"><p>'.$answer.'</p></div>
+         </div>';
+   }
+
+   return $html;
+}
+
+/**
+ * Retrieves widget data for a specific sidebar.
+ *
+ * @param string $sidebar_id The ID of the sidebar to retrieve widget data for.
+ * 
+ * @return array The widget data objects retrieved from the specified sidebar.
+ */
+function get_widget_data( string $sidebar_id ) {
+	global $wp_registered_widgets;
+	$output = array();
+
+	// A nested array in the format $sidebar_id => array( 'widget_id-1', 'widget_id-2' ... );
+	$sidebars_widgets = wp_get_sidebars_widgets();
+	$widget_ids = $sidebars_widgets[ $sidebar_id ];
+
+	if ( ! $widget_ids ) {
+		return array();
+	}
+
+	foreach ( $widget_ids as $id ) {
+		// The name of the option in the database is the name of the widget class.
+		$option_name = $wp_registered_widgets[ $id ]['callback'][0]->option_name;
+		$key = $wp_registered_widgets[ $id ]['params'][0]['number'];
+		$widget_data = get_option( $option_name );
+		$output[] = (object) $widget_data[ $key ];
+	}
+
+	return $output;
+}
+
+/**
+ * Retrieves image names and URLs from a specified folder path.
+ *
+ * @param string $path The path to the folder containing images.
+ * 
+ * @return array An array containing image names and URLs.
+ */
+function get_images_from_folder( string $path ) {
+   $base_dir = trailingslashit( get_stylesheet_directory() );
+   $base_uri = trailingslashit( get_template_directory_uri() );
+   
+   $image_names = array();
+   $image_urls = array();
+
+   $media_dir = $base_dir . $path;
+   $media_uri = $base_uri . $path;
+
+   $image_paths = glob($media_dir . '*.jpg' );
+
+   foreach ( $image_paths as $image ) {
+      $image_names[] = str_replace( $media_dir, '', $image );
+      $image_urls[] = str_replace( $media_dir, $media_uri, $image );
+   }
+
+   return array( $image_names, $image_urls);
 }
