@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  if (window.location.pathname.includes('/libro/')) {
+  if (window.location.pathname.includes('libro')) {
 
     const descriptionBtn = document.querySelector("#description-btn");
     const fichaBtn = document.querySelector("#ficha-btn");

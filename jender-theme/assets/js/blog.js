@@ -1,7 +1,6 @@
-
 document.addEventListener("DOMContentLoaded", function() {
 
-    if (window.location.pathname.includes('/blog/')) {
+    if (window.location.pathname.includes('blog')) {
     
         const blogArreglo = document.querySelector(".blog-subtitulos");
         const blogTopics = Array.from(blogArreglo.querySelectorAll("div[id^='blog-']"));
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         function topicsBtnClick (event) {
             const clickedElement = event.target;
-        
+
             blogTopics.forEach(element => {
                 element.classList.remove('catalogo-subtitulos_activo');
             });
@@ -23,9 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
             grids.forEach(grid => {
                 grid.classList.remove('blog-grid_activo');
             });
-
-            
-        console.log(clickedElement);
 
             // Add .blog-grid_active to the div with id #blog-grid-*
             const idTopic = clickedElement.id.split('-').pop(); // Get the last part after the dash

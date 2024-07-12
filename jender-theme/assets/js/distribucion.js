@@ -1,16 +1,13 @@
-
 document.addEventListener("DOMContentLoaded", function() {
 
-    if (window.location.pathname.includes('/distribucion/')) {
+    if (window.location.pathname.includes('distribucion')) {
 
         const distribucionArreglo = document.querySelector(".distribucion-subtitulos");
         const distribucionPaises = Array.from(distribucionArreglo.querySelectorAll("div[id^='distribucion-']"));
-
         
         distribucionPaises.forEach(element => {
             element.addEventListener('click', paisesBtnClick);
         });
-
 
         function paisesBtnClick (event) {
             const clickedElement = event.target;    
