@@ -159,3 +159,7 @@
 .qa-answer-active {
   display: flex;
 }
+
+.qa-answer a {
+  font-weight: 700;  
+}
