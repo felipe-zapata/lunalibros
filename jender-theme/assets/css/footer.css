@@ -48,3 +48,26 @@
 .footer-logo-luna {
   max-width: 128px;
 }
+
+/* Tables - Phablets */
+
+@media screen and (max-width: 900px) {
+
+  .footer {
+    margin-top: 4rem;
+    gap: 1rem;
+  } 
+}
+
+/* Phones */
+
+@media screen and (max-width: 600px) {
+
+  .footer-social {
+    flex-wrap: wrap;
+  }
+
+  .footer-social img {
+    order: 5;
+  }
+}

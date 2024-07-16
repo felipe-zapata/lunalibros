@@ -33,6 +33,7 @@
   width: auto;
   max-width: 15rem;
   max-height: 15rem;
+  box-shadow: #5B5C5C 0px 5px 15px;
 }
 
 .interna-subtitulos {
@@ -99,6 +100,8 @@
 
 .interna-compra-image {
   margin-top: 1rem;
+  width: auto;
+  height: 3rem;
 }
 
 .interesar {
@@ -116,4 +119,47 @@
 
 .interesar-principal .boletines-item_catalogo {
   text-align: justify;
+}
+
+/* Tables - Phablets */
+
+@media screen and (max-width: 900px) {
+
+  .interna-image {
+    max-height: 45vh;
+  }
+
+  .interna-compra {
+    justify-content: space-around;
+  }
+
+  .interesar-principal {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Phones */
+
+@media screen and (max-width: 600px) {
+
+  .interna {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .boletines-luna,
+  .boletines-title,
+  .interna-author {
+    text-align: center;
+  }
+  
+  .interna-subtitulos {
+    width: 100%;  
+    justify-content: space-around;
+  }
+
+  .interesar-principal{
+    flex-direction: column;
+    align-items: center;
+  }  
 }

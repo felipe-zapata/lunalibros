@@ -82,3 +82,27 @@
 .blog-grid_activo {
   display: grid;
 }
+
+/* Tables - Phablets */
+
+@media screen and (max-width: 900px) {
+
+  .blog-grid {
+    margin-bottom: 2rem;
+  } 
+}
+
+/* Phones */
+
+@media screen and (max-width: 600px) {
+
+  .blog-subtitulos {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

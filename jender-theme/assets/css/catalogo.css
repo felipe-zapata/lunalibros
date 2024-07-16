@@ -53,3 +53,26 @@
   margin: 1rem 0;
   gap: 1rem;
 }
+
+/* Tables - Phablets */
+
+@media screen and (max-width: 900px) {
+
+  .catalogo-subtitulos {
+    width: 75%;
+    justify-content: space-around;
+  }
+}
+
+/* Phones */
+
+@media screen and (max-width: 600px) {
+
+  .catalogo-subtitulos {
+    gap: 0.75rem;
+  }
+
+  .catalogo-principal {
+    justify-content: center;
+  }
+}
