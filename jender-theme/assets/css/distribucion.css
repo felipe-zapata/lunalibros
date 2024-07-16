@@ -43,3 +43,31 @@
   justify-content: space-evenly;
   margin-bottom: 1rem;
 }
+
+/* Tables - Phablets */
+
+@media screen and (max-width: 900px) {
+
+  .distribucion-subtitulos {
+    width: 80%;
+  }
+  
+  .distribucion-grid {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Phones */
+
+@media screen and (max-width: 600px) {
+
+  .distribucion-subtitulos {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .distribucion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

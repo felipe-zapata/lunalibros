@@ -199,6 +199,12 @@ a {
   margin: 60px 0 80px;
 }
 
+.boletines-button:hover {
+  background-color: #434445;
+  color: white;
+  transition: background-color 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);  
+}
+
 .presentacion {
   width: 90%;
   margin: 0 auto;
@@ -317,4 +323,73 @@ a {
 
 .presentacion-libros-item.third {
   top: 200px;
+}
+
+/* Tables - Phablets */
+
+@media screen and (max-width: 900px) {
+  .presentacion-lateral {
+    top: 470px;
+    left: -220px;
+    width: 600px;
+  }
+
+  .presentacion-title {
+    margin-bottom: 3rem;
+  }
+
+  .presentacion {
+    height: auto;
+    margin-bottom: 10rem;
+  }
+
+  .quote {
+    margin-bottom: 4rem;
+  }
+
+  .quote-title {
+    width: 90%;
+  }
+
+  .newsletter p {
+    width: 100%;
+    margin: 2rem 0;
+  }
+}
+
+/* Phones */
+
+@media screen and (max-width: 600px) {
+
+  .presentacion-lateral {
+    display: none;
+  }
+
+  .presentacion {
+    height: auto;
+  }
+
+  .boletines-articles {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .boletines-item, 
+  .boletines-item_catalogo {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .boletines-item-link {
+    text-align: center;
+  }
+
+  .newsletter {
+    width: 85%;
+  }
+
+  .newsletter-subscribe {
+    width: 100%;
+  }
 }

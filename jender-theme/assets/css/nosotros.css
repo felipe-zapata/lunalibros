@@ -163,3 +163,32 @@
 .qa-answer a {
   font-weight: 700;  
 }
+
+/* Tables - Phablets */
+
+@media screen and (max-width: 900px) {
+
+  .nosotros-grid {
+    grid-template-columns: repeat(3, 2fr);
+    justify-items: center;
+  }
+}
+
+/* Phones */
+
+@media screen and (max-width: 600px) {
+
+  .nosotros-grid {
+    grid-template-columns: repeat(2, 2fr);
+  }
+
+  .qa-button {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .qa-question {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
