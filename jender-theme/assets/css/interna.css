@@ -11,7 +11,6 @@
   border-radius: 5px;
   max-width: 40%;
   max-height: 70vh;
-  box-shadow: 0 0 5px -1px black, inset -1px 1px 2px rgba(255, 255, 255, 0.5);  
 }
 
 .interna-text {
@@ -21,7 +20,7 @@
 .interna-author {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 2rem;
   color: #5B5C5C;
   margin-bottom: 40px;
@@ -33,7 +32,6 @@
   width: auto;
   max-width: 15rem;
   max-height: 15rem;
-  box-shadow: #5B5C5C 0px 5px 15px;
 }
 
 .interna-subtitulos {

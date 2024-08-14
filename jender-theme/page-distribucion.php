@@ -30,12 +30,17 @@ get_header();
       <!-- TODO: Links? -->
       <?php foreach ($distributors as $distributor) { ?>
         <article class="distribucion-libreria">
-          <div class="distribucion-nombre"><?php echo $distributor['title'] ?></div>
+        <div class="distribucion-nombre"><?php echo $distributor['title'] ?></div>
           <div class="distribucion-ciudad"><?php echo $distributor['ubicacion'] ?></div>
           <a href="<?php echo $distributor['rrss']['url'] ?>" target="_blank" >
             <div class="distribucion-link">
-              <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
-              <div><?php echo $distributor['rrss']['texto'] ?></div>
+            <img src="<?php echo get_template_directory_uri() . "/assets/imagenes/instagram.svg;"; ?>" alt=" " class="distribucion-link_icon" />
+            <div><?php echo $distributor['rrss']['texto'] ?></div>
+            </div>
+          </a>
+          <a href="<?php echo $distributor["otro"]; ?>" target="_blank" >
+            <div class="distribucion-link">
+              <div><?php echo $distributor["otro"]; ?></div>
             </div>
           </a>
         </article>
