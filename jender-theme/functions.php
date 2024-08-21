@@ -611,3 +611,11 @@ function get_images_from_folder( string $path ) {
 
    return array( $image_names, $image_urls);
 }
+
+function strip_specific_tags($string, $tags = array()) {
+   foreach ($tags as $tag) {
+     $string = preg_replace('/<' . $tag . '\b[^>]*>/i', '', $string);
+     $string = preg_replace('/<\/' . $tag . '>/i', '', $string);
+   }
+   return $string;
+ }

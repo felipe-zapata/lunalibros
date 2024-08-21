@@ -54,7 +54,7 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'blog', 'publish', 
           <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
             <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
           </a>
-          <p class="boletines-item-description"><?php echo $book['descripcion'] ?></p>
+          <p class="boletines-item-description"><?php echo strip_specific_tags($book['descripcion'], array('p'))  ?></p>
         </article>
     <?php } ?>
     </div>

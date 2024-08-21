@@ -42,7 +42,7 @@ $total_authors_pages = $authors['total_pages'];
         <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
           <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
         </a>
-        <p class="boletines-item-description"><?php echo $book['descripcion'] ?></p>
+        <p class="boletines-item-description"><?php echo strip_specific_tags($book['descripcion'], array('p'))  ?></p>
       </article>
       <?php 
         } 
@@ -79,7 +79,11 @@ $total_authors_pages = $authors['total_pages'];
         <a href="<?php echo $author['permalink'] ?>" class="boletines-item-link">
           <h4 class="boletines-item-title"><?php echo $author['title'] ?></h4>
         </a>
-        <p class="boletines-item-description"><?php echo $author['descripcion'] ?></p>
+        <p class="boletines-item-description">
+          <?php
+            echo strip_specific_tags($author['descripcion'], array('p')) 
+          ?>
+        </p>
       </article>
       <?php 
         } 
