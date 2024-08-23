@@ -177,7 +177,18 @@ a {
   font-size: 1.5rem;
   line-height: 2.25rem;
   letter-spacing: -0.015em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.boletines-item-collection {
+  font-family: "Lato", sans-serif;
+  color: #9C9FA0;
+  font-weight: 700;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  line-height: 0.75rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .boletines-item-description {

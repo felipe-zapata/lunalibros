@@ -40,8 +40,12 @@
   font-size: 1rem;
   color: #6F7072;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-bottom: 1rem;
+}
+
+.distribucion-link img {
+  margin-right: 0.5rem;
 }
 
 /* Tables - Phablets */

@@ -63,12 +63,18 @@ get_header();
       <div class="interna-subtitulos">
         <div class="interna-subtitulos_activo" id="description-btn">Descripción</div>
         <div id="ficha-btn">Ficha técnica</div>
+        <?php if (!empty($book['prensa'])) { ?>
+          <div id="prensa-btn">Prensa</div>
+        <?php } ?>
       </div>
       <div class="interna-description interna-description_activo" id="interna-description">
         <?php echo !empty($book['descripcion']) ? htmlspecialchars_decode(nl2br($book['descripcion'])) : '' ?>
       </div>
       <div class="interna-description" id="interna-ficha">
         <?php echo !empty($book['ficha_tecnica']) ? htmlspecialchars_decode(nl2br($book['ficha_tecnica'])) : '' ?>
+      </div>
+      <div class="interna-description" id="interna-prensa">
+        <?php echo !empty($book['prensa']) ? htmlspecialchars_decode(nl2br($book['prensa'])) : '' ?>
       </div>
       <?php if (!empty($book['pvp']) || !empty($book['compra_en_linea'])) { ?>
       <div class="interna-compraTitulo">Compra en línea</div>

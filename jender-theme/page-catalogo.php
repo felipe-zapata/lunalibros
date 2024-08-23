@@ -6,7 +6,7 @@ $max_to_show = 12;
 $current_page = get_query_var('paged') ? get_query_var('paged') : 1;
 
 // Catalogo de Libros
-$query_books = array('autor', 'cover', 'descripcion');
+$query_books = array('autor', 'cover', 'descripcion', 'coleccion');
 $books = pagination_post_ids('libro', $max_to_show , $current_page);
 $total_books_pages = $books['total_pages'];
 
@@ -40,9 +40,12 @@ $total_authors_pages = $authors['total_pages'];
           <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
         </a>
         <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
+          <h4 class="boletines-item-collection"><?php echo $book['coleccion'][0]->name ?></h4>
+        </a>
+        <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
           <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>
         </a>
-        <p class="boletines-item-description"><?php echo strip_specific_tags($book['descripcion'], array('p'))  ?></p>
+        <p class="boletines-item-description"><?php echo strip_specific_tags($book['autor'], array('p'))  ?></p>
       </article>
       <?php 
         } 
