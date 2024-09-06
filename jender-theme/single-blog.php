@@ -8,14 +8,8 @@ Template Post Type: blog
 $post_id = get_the_ID();
 $max_posts = 3;
 
-$query_blog = array('imagen', 'texto', 'topico', 'descripcion');
+$query_blog = array('imagen', 'texto', 'topico', 'descripcion', 'autor');
 $blog = query_custom_post_types($query_blog, $post_id, 'blog', 'publish', 2, 'DESC', 'post_date')[0];
-
-// Post Author Information
-$user_info = get_userdata(get_post_field('post_author', $post_id));
-$full_name = $user_info->first_name . ' ' . $user_info->last_name;
-$author_name = !empty(preg_replace('/\s+/', '', $full_name)) ? $full_name : $user_info->nickname;
-$author_name = $author_name ?? $user_info->user_login;
 
 get_header(); 
 ?>
@@ -33,8 +27,7 @@ get_header();
         }      
       ?>
       </p>
-      <h3 class="boletines-title"><?php echo $blog['title'] ?></h3>
-      <h4 class="post-author"><?php echo $author_name ?></h4>
+      <h3 class="boletines-title"><?php echo $blog['title'] ?></h3>      <h4 class="post-author"><?php echo $blog['autor'] ?></h4>
       <div class="catalogo-description"><?php echo $blog['descripcion'] ?></div>
     </div>
   </section>

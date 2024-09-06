@@ -2,7 +2,7 @@
 get_header();
 
 // Catalogo de Libros
-$query_books = array('autor', 'cover', 'descripcion');
+$query_books = array('autor', 'cover', 'descripcion', 'coleccion');
 $books = query_custom_post_types($query_books, null, 'libro', 'publish', 3, 'DESC', 'post_date');
 
 // Catalogo de Boletines
@@ -40,7 +40,6 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'blog', 'publish', 
   </section>
   <section class="boletines">
     <div class="boletines-header">
-      <!--TODO: Change titles, TODO?-->
       <p class="boletines-luna">LUNA LIBROS</p>
 
       <h3 class="boletines-title">Catálogo</h3>
@@ -50,6 +49,9 @@ $bulletins = query_custom_post_types($query_bulletins, null, 'blog', 'publish', 
         <article class="boletines-item_catalogo">
           <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
             <img src="<?php echo load_default_image($book['cover']) ?>" alt=" " class="img-fluid radius-image boletines-images" />
+          </a>
+          <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
+            <h4 class="boletines-item-collection"><?php echo $book['coleccion'][0]->name ?></h4>
           </a>
           <a href="<?php echo $book['permalink'] ?>" class="boletines-item-link">
             <h4 class="boletines-item-title"><?php echo $book['title'] ?></h4>

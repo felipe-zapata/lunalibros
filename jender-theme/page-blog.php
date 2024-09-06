@@ -7,7 +7,7 @@ $current_page = get_query_var('paged') ? get_query_var('paged') : 1;
 $blogs_structure = query_posts_ids_by_taxonomy('topico', array(), -1);
 
 // Catalogo de Blogs
-$query_blogs = array('imagen', 'texto', 'topico');
+$query_blogs = array('imagen', 'texto', 'topico', 'autor');
 $blogs = pagination_post_ids('blog', $max_to_show , $current_page);
 $total_blogs_pages = $blogs['total_pages'];
 
@@ -25,7 +25,6 @@ get_header();
       </div>
       <?php } ?>
       <div class="catalogo-subtitulos blog-subtitulos">
-        <!-- TODO: Filter -->
         <div class="catalogo-subtitulos_activo" id="blog-todos">Todos</div>        
         <?php foreach ($blogs_structure as $topic => $id) { ?>
         <div id="blog-<?php echo preg_replace('/\s+/', '_', strtolower($topic)); ?>"><?php echo $topic; ?></div>
@@ -44,9 +43,12 @@ get_header();
           <img src="<?php echo load_default_image($blog['imagen']) ?>" alt=" " class="img-fluid radius-image blog-images" />
         </a>
         <a href="<?php echo $blog['permalink'] ?>" class="boletines-item-link">
+            <h4 class="boletines-item-collection"><?php echo $blog['topico'][0]->name ?></h4>
+        </a>
+        <a href="<?php echo $blog['permalink'] ?>" class="boletines-item-link">
           <h4 class="blog-item-title"><?php echo $blog['title'] ?></h4>
         </a>
-        <p class="blog-item-description"><?php echo strip_tags($blog['texto']) ?></p>
+        <p class="blog-item-description"><?php echo strip_tags($blog['autor']) ?></p>
       </article>
       <?php
         }
@@ -55,7 +57,6 @@ get_header();
     </div>
     <?php foreach ($blogs_structure as $topic => $ids) { ?>
     <div class="blog-grid" id="blog-grid-<?php echo preg_replace('/\s+/', '_', strtolower($topic)); ?>">
-    <!-- TODO: Links? -->
     <?php foreach ($ids as $id) { 
       $blog = query_custom_post_types($query_blogs, $id, 'blog', 'publish', 1, 'DESC', 'post_date')[0]; 
     ?>
@@ -88,7 +89,6 @@ get_header();
       }
       ?>
     </div>
-    <!-- TODO: Pagination -->
   </section>
 </main>
 <?php get_footer(); ?>

@@ -14,11 +14,11 @@
   </section>
   <h6 class="footer-text">Al leer se sale del tiempo y se viaja estando quieto</h6>
   <div class="footer-social">
-    <a href="#">Facebook</a>
-    <a href="#">Twitter</a>
+    <a href="https://www.facebook.com/lunalibroscolombia">Facebook</a>
+    <a href="https://x.com/Luna_Libros?mx=2">X</a>
     <img src="<?php echo get_template_directory_uri()."/assets/imagenes/logo_luna.png;"; ?>" alt=" " class="footer-logo-luna" />
-    <a href="#">Instagram</a>
-    <a href="#">LinkedIn</a>
+    <a href="https://www.instagram.com/luna_libros/">Instagram</a>
+    <a href="https://www.linkedin.com/in/luna-libros">LinkedIn</a>
   </div>
   <div class="footer-derechos">Todos los derechos reservados © <?php echo date("Y"); ?></div>
   <?php wp_footer(); ?>
